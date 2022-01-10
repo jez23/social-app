@@ -1,0 +1,24 @@
+.grid7030{
+    display: grid;
+    grid-template-columns: 70% 30%;
+    grid-template-areas: "col17030 col27030";
+    margin-bottom: 20px;
+}
+.grid7030__col1{
+    grid-area: col17030;
+    padding: 20px;
+}
+.grid7030__col2{
+    grid-area: col27030;
+    padding: 0px 50px 0px 50px;
+}
+
+@media only screen and (max-width: 800px) {
+    .grid7030{
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-areas: 
+                    "col17030"
+                    "col27030";
+    }
+}

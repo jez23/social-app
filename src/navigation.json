@@ -1,0 +1,34 @@
+[
+    {
+        "title": "Home",
+        "mainUrl": "/",
+        "subNav": {
+            "image": "",
+            "subLinks": []
+        }
+    },
+    {
+        "title": "Forums",
+        "mainUrl": "/forums",
+        "subNav": {
+            "image": "",
+            "subLinks": []
+        }
+    },
+    {
+        "title": "Reviews",
+        "mainUrl": "/reviews",
+        "subNav": {
+            "image": "",
+            "subLinks": []
+        }
+    },
+    {
+        "title": "Members",
+        "mainUrl": "/members-directory",
+        "subNav": {
+            "image": "",
+            "subLinks": []
+        }
+    }
+]

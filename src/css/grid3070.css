@@ -1,0 +1,23 @@
+.grid3070{
+    display: grid;
+    grid-template-columns: 30% 70%;
+    grid-template-areas: "col13070 col23070";
+    margin-bottom: 20px;
+}
+.grid3070__col1{
+    grid-area: col13070;
+}
+.grid3070__col2{
+    grid-area: col23070;
+}
+
+
+@media only screen and (max-width: 800px) {
+    .grid3070{
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-areas: 
+                    "col13070"
+                    "col23070";
+    }
+}

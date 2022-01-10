@@ -1,0 +1,29 @@
+.grid333333 {
+    display: grid;
+    grid-template-areas: "col133 col233 col333";
+    grid-template-columns: repeat(3, 1fr);
+    margin-bottom: 20px;
+}
+.grid333333__col1 {
+    grid-area: col133;
+} 
+      
+.grid333333__col2 {
+    grid-area: col233;
+}
+
+.grid333333__col3 {
+    grid-area: col333;
+} 
+
+@media only screen and (max-width: 800px) {
+    .grid333333 {
+        display: grid;
+        grid-template-areas: 
+            "col133" 
+            "col233"
+            "col333";
+        grid-template-columns: repeat(1, 1fr);
+        padding: 0px 30px;
+    }
+}

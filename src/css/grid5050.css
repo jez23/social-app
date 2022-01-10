@@ -1,0 +1,22 @@
+.grid5050 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas: "col15050 col25050";
+    margin-bottom: 20px;
+}
+.grid5050__col1{
+    grid-area: col15050;
+}
+.grid5050__col2{
+    grid-area: col25050;
+}
+
+@media only screen and (max-width: 800px) {
+    .grid5050 {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-areas: 
+            "col15050"
+            "col25050";
+    }
+}

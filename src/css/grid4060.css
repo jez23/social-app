@@ -1,0 +1,22 @@
+.grid4060{
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-areas: "template40_col1 template40_col1 template40_col1 template40_col1 template60_col2 template60_col2 template60_col2 template60_col2 template60_col2 template60_col2";
+    margin-bottom: 20px;
+}
+.grid4060__col1{
+    grid-area: template40_col1;
+} 
+.grid4060__col2{
+    grid-area: template60_col2;
+} 
+
+@media only screen and (max-width: 800px) {
+    .grid4060{
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-areas: 
+            "template40_col1"
+            "template60_col2";
+    }
+}

@@ -1,0 +1,152 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/*  Headers */
+
+h1 {
+    color: #aa2f2e;
+    text-transform: uppercase;
+    font-size: 34px;
+    margin-bottom: 20px;
+    font-family: VeneerThree, Helvetica, sans-serif;
+}   
+h2 {
+    color: #A00000;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    font-family: VeneerThree, Helvetica, sans-serif;
+    font-size: 26px;
+    text-decoration: underline;
+}
+
+h3, h4, h5 {
+    color: black;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    font-family:  VeneerThree, Helvetica, sans-serif;
+}
+h3 {
+    font-size: 20px;
+}
+h4 {
+    font-size: 18px;
+}
+h5 {
+    font-size: 16px;
+}
+p {
+    font-family: arial,sans-serif;
+    margin-bottom: 20px;
+}
+span{
+    font-family: arial,sans-serif;
+    margin-bottom: 20px;
+}
+label {
+    font-family: arial,sans-serif;
+    margin-bottom: 5px;
+}
+/* Lists */
+
+ul, ol {
+    margin-bottom: 20px;
+}
+li {
+    font-family: arial,sans-serif;
+    margin-left: 20px;
+}
+
+
+/* Buttons */
+.btn {
+    cursor: pointer;
+    border: 2px solid black;
+    padding: 5px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    text-decoration: none;
+    text-align: center;
+    display: block;
+    border-radius: 6px;
+    font-family:  VeneerThree, Helvetica, sans-serif;
+    font-size: 30px;
+    transition: all 0.5s ease-in-out;
+}
+.btn:hover{
+    transform: scale(1.05);
+}
+.btn span {
+    font-family:  VeneerThree, Helvetica, sans-serif;
+}
+.primary{
+    color: white;
+    background-color: #019D9D;
+}
+.primary:hover{
+    transition: all 500ms;
+    color: white;
+    background-color: #510000;
+}
+.secondary{
+    color: #019D9D;
+    background-color: white;
+    border: 1px solid #019D9D;
+}
+.delete{
+    color: #fff;
+    background-color: #ff0000;
+    border: 1px solid #019D9D;
+}
+.secondary:hover{
+    transition: all 500ms;
+    color: white;
+    background-color: #511F00;
+}
+.tertiary {
+    color: white;
+    background-color: #249078;
+}
+.tertiary:hover {
+    transition: all 500ms;
+    color: white;
+    background-color: #003429;
+}
+
+.btn__tag {
+    border: 2px solid #9f0102;
+    border-radius: 20px;
+    font-size: 13px;
+    padding: 3px 10px 3px 10px;
+    min-width: 50px;
+    text-align: center;
+    margin-bottom: 20px;
+    background-color: white;
+    text-transform: uppercase;
+}
+
+.global__cardLink {
+    text-decoration: none;
+    color: black;
+}
+
+.loader{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+.loaderSpinner{
+    position:fixed;
+    top: 40%;
+    left: 42%;
+}
+
+@media only screen and (max-width: 800px) {
+    h1 {
+        font-size: 32px;
+    }   
+    .mobile_image{
+        width: 100%;
+    }
+}

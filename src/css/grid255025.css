@@ -1,0 +1,18 @@
+.grid255025 {
+    display: grid;
+    grid-template-columns: 25% 50% 25%;
+    margin-bottom: 20px;
+    grid-template-areas: "col1255025 col12255025 col2255025 col2255025 col2255025 col2255025 col3255025 col3255025";
+}
+
+@media only screen and (max-width: 800px) {
+    .grid255025 {
+        display: grid;
+        grid-template-columns: 100%;
+        margin-bottom: 20px;
+        grid-template-areas: 
+            "col1255025"
+            "col2255025"
+            "col3255025";
+    }
+}

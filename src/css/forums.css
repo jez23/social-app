@@ -1,0 +1,90 @@
+.forumTable{
+    width: 100%;
+}
+.forumTable__header{
+    display: grid;
+    grid-template-columns: repeat(14, 1fr);
+    grid-template-areas: "titleFT titleFT titleFT titleFT titleFT titleFT titleFT numTopicFT numTopicFT numPostsFT numPostsFT lastPostsFT lastPostsFT lastPostsFT";
+    margin-bottom: 10px;
+}
+.forumTable__header h3 {
+    margin-bottom: 0px;
+   
+}
+.forumTable__header__title{
+    grid-area: titleFT;
+    margin-left: 10px;
+}
+.forumTable__header__topics{
+    grid-area: numTopicFT;
+    text-align: center;
+}
+.forumTable__header__posts{
+    grid-area: numPostsFT;
+    text-align: center;
+}
+.forumTable__header__lastPost{
+    grid-area: lastPostsFT;
+    text-align: center;
+}
+
+.forumTableListPost{
+    display: grid;
+    grid-template-columns: repeat(14, 1fr);
+    grid-template-areas: "title title title title title title title numTopic numTopic numPosts numPosts lastPosts lastPosts lastPosts";
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 10px;
+    margin-bottom: 5px;
+    border: 2px solid #019D9D;
+    padding: 5px;
+}
+
+
+.forumTableListPost:hover{
+    box-shadow: 1px 1px 24px -1px rgba(0,0,0,0.79);
+    -webkit-box-shadow: 1px 1px 24px -1px rgba(0,0,0,0.79);
+    -moz-box-shadow: 1px 1px 24px -1px rgba(0,0,0,0.79);
+}
+.forumTableListPost__title{
+    grid-area: title;
+    align-self: center;
+    margin-left: 10px;
+}
+.forumTableListPost__title h3 {
+
+}
+.forumTableListPost__numTopic{
+    grid-area: numTopic;
+    align-self: center;
+    text-align: center;
+}
+.forumTableListPost__numPosts{
+    grid-area: numPosts;
+    align-self: center;
+    text-align: center;
+}
+.forumTableListPost__lastPosts{
+    grid-area: lastPosts;
+    align-self: center;
+    text-align: center;
+}
+
+.commentBoarder {
+    border: 1px solid #029d9d; 
+}
+.forumComment__header{
+    background-color: #ebeaea;
+    padding: 20px;
+    margin-bottom: 20px;
+    text-align: right;
+}
+.forumComment__body{
+    padding: 20px;
+}
+.forumTextArea{
+    width: 100%;
+    height: 100px;
+    box-sizing: border-box;
+    padding: 20px;
+}

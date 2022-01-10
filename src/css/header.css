@@ -1,0 +1,195 @@
+header {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    background-color: #9f0102;
+    grid-template-areas: " nav nav nav nav nav";
+    line-height: 50px;
+    margin-bottom: 30px;
+  }
+  .header__desktop {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    text-align: center;
+    color: white;
+    padding-top: 12px;
+    font-family: VeneerThree, Helvetica, sans-serif;
+  }
+  .header__login {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-areas: "search search logo logo logo logo login login";
+    background-color: white;
+    color: #9f0102;
+    padding: 10px;
+  }
+  .header__login .socialIcons a {
+    color: #9f0102;
+  }
+  .header__login ul {
+    display: inline-flex;
+    list-style: none;
+  }
+  .header__login ul li {
+    margin-left: 5px;
+  }
+  .header__login__login {
+    grid-area: login;
+    justify-content: flex-end;
+    display: flex;
+    align-items: center;
+  }
+  .header .btn {
+    padding: 5px;
+    margin-bottom: 0px;
+    font-size: 24px;
+  }
+  
+  .header__login__search {
+    grid-area: search;
+  }
+  .header__login__logo {
+    grid-area: logo;
+    text-align: center;
+  }
+  .header__login__logo img {
+    height: 50px;
+  }
+  .header__nav {
+    grid-area: nav;
+    align-self: center;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    position: relative;
+  }
+  .header__nav a {
+    font-family: VeneerThree, Helvetica, sans-serif;
+    font-size: 26px;
+    margin-right: 15px;
+    text-align: center;
+  }
+  
+  .header__nav__subNav {
+    position: absolute;
+    top: 171px;
+    left: 0px;
+    width: 100%;
+    background-color: white;
+    z-index: 200;
+    display: grid;
+    grid-template-areas: "hNimage hNimage hNclinks hNclinks hNclinks hNclinks";
+    grid-template-columns: repeat(6, 1fr);
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+  }
+  
+  .header__nav__subNav-enter {
+    opacity: 0;
+  }
+  .header__nav__subNav-enter-active {
+    opacity: 1;
+    transition: opacity 500ms;
+  }
+  .header__nav__subNav-exit {
+    opacity: 1;
+  }
+  .header__nav__subNav-exit-active {
+    opacity: 0;
+    transition: opacity 500ms;
+  }
+  
+  .header__nav__subNav__image {
+    grid-area: hNimage;
+    text-align: center;
+    padding: 20px;
+  }
+  .header__nav__subNav__image img {
+    max-height: 160px;
+  }
+  .header__nav__subNav__links {
+    grid-area: hNclinks;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    /*   justify-content: center;
+      justify-self: center;
+      justify-items: center; */
+    align-items: center;
+    /*   align-self: center; */
+    /*   align-self: center; */
+    text-decoration: underline;
+  }
+  .header__nav__subNav a {
+    color: black;
+    font-size: 26px;
+    text-decoration: underline;
+  }
+  .header__nav__subNav a:visited {
+    color: black;
+  }
+  .header__nav__subNav a:link {
+    color: black;
+  }
+  .header__nav__subNav a:hover {
+    color: red;
+  }
+  
+  header a {
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 34px;
+    transition: all .2s ease-in-out;
+    color: white;
+  }
+  
+  header a:visited {
+    color: white;
+  }
+  header a:link {
+    color: white;
+  }
+  header a:hover {
+    color: red;
+    transform: scale(1.1);
+  }
+  .header__mobileNav {
+    display: none;
+  }
+  .header__mobileNav i {
+      cursor: pointer;
+      margin-left: 20px;
+      color: white;
+  }
+  .searchWording{
+      padding-left: 10px;
+  }
+  
+  @media only screen and (max-width: 800px) {
+    .header__login {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-areas:
+        "search login"
+        "logo logo";
+    }
+    .header__nav {
+      grid-area: nav;
+      text-align: center;
+      align-self: center;
+      display: none;
+      grid-template-columns: repeat(1, 1fr);
+      position: relative;
+    }
+    .header__mobileNav {
+      display: grid;
+    }
+    .header__mobileNav__dropDown {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+    }
+    .header__desktop {
+      display: none;
+    }
+  }
+  @media only screen and (max-width: 400px) {
+      .searchWording{
+          display: none;
+      }
+  }
