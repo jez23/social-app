@@ -6,7 +6,8 @@ import "../css/imports.css";
 
 import Header from "../components/header/Header";
 import Home from "../components/pages/Home";
-import Forums from "../components/pages/forums/Forums1";
+import Forums from "../components/pages/forums/catergory/Forums1";
+import ForumTopics from "./pages/forums/topic/ForumTopics";
 import Login from "../components/pages/login/Login";
 import Register from "../components/pages/register/Register";
 import Profile from "../components/pages/userInfo/Profile";
@@ -29,13 +30,14 @@ const App = () => {
         <div className="container">
 
           <Routes>
-             <Route path="/"  element={<Home />} /> 
+             <Route path="/"  element={<Forums />} /> 
 
             <Route path="/login" element={<Login />} /> 
             <Route path="/register" element={<Register />} />
 
             <Route path="/profile/:id" element={<Profile />} />
             <Route path="/forums" element={<Forums />} />
+            <Route path="/forums/category/:category_slug" element={<ForumTopics />}/>
             <Route path="/settings" element={<ProfileSettings />} />
 
             <Route path="/members-directory" element={<MembersDirectory />} />

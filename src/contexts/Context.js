@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, createContext } from 'react';
 
 
-const Context = React.createContext();
+const Context = createContext();
 
 export function ConstProvider({children}){
   

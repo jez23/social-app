@@ -6,6 +6,7 @@ const Home = () => {
   return (
     <div className="homepage">
       <Grid108010 col2={<h1>Review Website</h1>} />
+      <Grid108010 col2={<h1>Review Website</h1>} />
     </div>
   );
 };

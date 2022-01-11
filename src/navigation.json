@@ -16,14 +16,6 @@
         }
     },
     {
-        "title": "Reviews",
-        "mainUrl": "/reviews",
-        "subNav": {
-            "image": "",
-            "subLinks": []
-        }
-    },
-    {
         "title": "Members",
         "mainUrl": "/members-directory",
         "subNav": {

@@ -18,6 +18,7 @@ const MembersDirectory = ({ history }) => {
     .then(response => {
         return response.json()
     }).then(data => {
+        console.log(data)
         setMemberProfiles(data.users);
         setIsLoading(false);
     })
