@@ -6,11 +6,7 @@ import Context from '../../contexts/Context';
 
 const LoginTopNav = ({ history }) => {
 
-
-
     const { baseUrl } = useContext(Context);
-
-
    
    const logo = `https://urbacise.s3-us-west-1.amazonaws.com/app/logos/urbacise/logo236x50.png`;
    

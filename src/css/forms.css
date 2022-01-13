@@ -106,3 +106,8 @@ form textarea {
 .close{
     cursor: pointer;
 }
+
+.topicCard__upvote i:hover{
+    color: green;
+    cursor: pointer;
+}

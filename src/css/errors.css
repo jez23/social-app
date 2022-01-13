@@ -1,0 +1,7 @@
+p.errorMesssage {
+    margin-bottom: 10px;
+    font-size: 12px;
+    text-transform: uppercase;
+    color: red;
+    font-weight: 700;
+}

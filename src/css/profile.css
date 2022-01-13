@@ -1,0 +1,62 @@
+.profileHeader{
+    position: relative;
+    height: 400px;
+    width: 100%;
+}
+.profileHeader__heroBanner{
+    height: 400px;
+    position: absolute;
+    width: 100%;
+}
+.profileHeader__heroBanner img{
+    width: 100%;
+    height: 100%;
+}
+.profileHeader__profileImage{
+    position: relative;
+    top: 180px;
+    left: 20px;
+}
+.profileAboutMe{
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-areas: 
+        "aboutMeMeta"
+        "aboutMeOptions";
+}
+.profileAboutMe__meta{
+    grid-area: aboutMeMeta;
+    min-height: 80px;
+    min-height: 80px;
+}
+.profileAboutMe__options__buttons{
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 2px;
+    list-style: none;
+    justify-items: center;
+    align-items: center;
+}
+.profileAboutMe__options__buttons .btn{
+    margin-bottom: 0px;
+    cursor: pointer;
+    border: 2px solid black;
+    padding: 10px;
+    text-transform: uppercase;
+    text-decoration: none;
+    text-align: center;
+    display: block;
+    border-radius: 0px;
+    font-family: VeneerThree, Helvetica, sans-serif;
+    font-size: 30px;
+    width: 100%;
+}
+.profileAboutMe__options__buttons li{
+    width: 100%;
+}
+
+@media only screen and (max-width: 800px) {
+    .profileAboutMe__options__buttons{
+        grid-template-columns: repeat(1, 1fr);
+    }
+}

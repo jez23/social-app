@@ -1,0 +1,77 @@
+.topicCard{
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        grid-template-areas: "upVote topicImage topicImage topicMeta topicMeta topicVotes topicVotes";
+        cursor: pointer;
+        padding: 5px;
+        border-radius: 10px;
+        margin-bottom: 5px;
+        border: 2px solid #019D9D;
+        padding: 5px;
+}
+.topicCard__upvote{
+    grid-area: upVote;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+}
+.cardLists a{
+    text-decoration: none;
+    text-decoration: none;
+    color: black;
+}
+
+.topicCard__image{
+    grid-area: topicImage;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+}
+.topicCard__image img{
+    width: 100%;
+    height: 100px;
+    object-fit: cover;
+}
+.topicCard__meta{
+    grid-area: topicMeta;
+    text-overflow: ellipsis;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+}
+.topicCard__votes{
+    grid-area: topicVotes;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+    align-items: center;
+    text-transform: uppercase;
+    font-size: 18px;
+}
+
+.commentCard__upvote{
+    grid-area: upVote;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    font-size: 25px;
+    height: 100%;
+
+
+}
+@media only screen and (max-width: 800px) {
+    .topicCard{
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-areas: 
+        "topicImage"
+        "topicMeta" 
+        "topicVotes";
+    }
+}

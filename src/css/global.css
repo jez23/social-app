@@ -98,6 +98,11 @@ li {
     color: #fff;
     background-color: #ff0000;
     border: 1px solid #019D9D;
+    height: 40px;
+    cursor: pointer;
+}
+.delete:hover{
+    background-color: #510000;
 }
 .secondary:hover{
     transition: all 500ms;

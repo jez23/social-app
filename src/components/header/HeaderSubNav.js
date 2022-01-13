@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const HeaderSubNav = ({ subNav }) => {
-    console.log(subNav, 4444444);
+   
   return subNav && subNav.subLinks.length > 0 ? (
     <div className="header__nav__subNav">
       <div className="header__nav__subNav__image">

@@ -1,7 +1,7 @@
 import React from 'react';
 
   
-const ForumTableListTopics =  ({ category }) => {
+const ForumCard =  ({ category }) => {
     return (
    
             <div className="forumTableListPost">
@@ -23,4 +23,4 @@ const ForumTableListTopics =  ({ category }) => {
     )
 } 
 
-export default ForumTableListTopics;
+export default ForumCard;
