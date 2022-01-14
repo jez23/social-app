@@ -41,6 +41,7 @@ const Filters = ({queries, setQueries}) => {
         <div className="filters">   
         <form onSubmit={handleSubmit}>
             <select value={sortByQuery} onChange={(e) => setSortByQuery(e.target.value)}>
+                <option value="">Select Sort By</option>
                 <option value="title">title</option>
                 <option value="designer">designer</option>
                 <option value="owner">owner</option>
@@ -49,8 +50,19 @@ const Filters = ({queries, setQueries}) => {
                 <option value="votes">votes</option>
             </select> 
             <select value={orderQuery} onChange={(e) => setOrderQuery(e.target.value)}>
+                <option value="">Select Order</option>
                 <option value="asc">asc</option>
                 <option value="desc">desc</option>
+            </select>
+            <select value={categoryQuery} onChange={(e) => setCategoryQuery(e.target.value)}>
+                <option value="">Select Category</option>
+                <option value="strategy">strategy</option>
+                <option value="hidden-roles">hidden-roles</option>
+                <option value="dexterity">dexterity</option>
+                <option value="push-your-luck">push-your-luck</option>
+                <option value="roll-and-write">roll-and-write</option>
+                <option value="deck-building">deck-building</option>
+                <option value="engine-building">engine-building</option>
             </select>
             <button type="submit" class="btn secondary">Filter</button>
         </form>
