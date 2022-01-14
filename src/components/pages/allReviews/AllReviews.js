@@ -11,9 +11,9 @@ import Grid108010 from "../../grids/Grid108010";
 
 const AllReviews = () => {
 /*   let { category_slug } = useParams(); */
-  const { baseUrl, allCategories, setAllCategories } = useContext(Context);
+  const { baseUrl, allCategories, setAllCategories,  topics, setTopics } = useContext(Context);
 
-  const [topics, setTopics] = useState([]);
+ /*  const [topics, setTopics] = useState([]); */
   const [isLoading, setIsLoading] = useState(true);
   const [queries, setQueries] = useState('');
 

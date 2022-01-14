@@ -29,7 +29,7 @@ const ForumTableListTopics = ({ topic, topics, setTopics }) => {
         <div className="topicCard__votes">
           <p>Votes: {topic.votes}</p>
           <p>Comments: {topic.comment_count}</p>
-          {topic.owner === loggedInUser.username? <DeleteTopics topic={topic} topics={topics} setTopics={setTopics}/>: null}
+          {loggedInUser.length > 0 ? topic.owner === loggedInUser[0].username? <DeleteTopics topic={topic} topics={topics} setTopics={setTopics}/>: null: null}
         </div>
       </div>
     </div>

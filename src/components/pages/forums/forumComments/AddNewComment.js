@@ -16,7 +16,7 @@ const AddNewComment = ({ topicSlug, comments, setComments }) => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        username: loggedInUser.username,
+        username: loggedInUser[0].username,
         body: comment,
       }),
     })

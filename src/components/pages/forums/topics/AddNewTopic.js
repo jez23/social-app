@@ -20,7 +20,7 @@ const AddNewTopic = ({topics, setTopics}) => {
     const handleSubmit = (e) => {
         e.preventDefault();
     console.log({
-        owner: loggedInUser.username,
+        owner: loggedInUser[0].username,
         title: title,
         review_body: description,
         designer: designer,
@@ -32,7 +32,7 @@ const AddNewTopic = ({topics, setTopics}) => {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            owner: loggedInUser.username,
+            owner: loggedInUser[0].username,
             title: title,
             review_body: description,
             designer: designer,

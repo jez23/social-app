@@ -3,7 +3,7 @@ import React, { useContext } from 'react';
 import Context from "../../../../../contexts/Context";
 import Grid108010 from '../../../../grids/Grid108010';
 
-const About = () => {
+const About = ({ user }) => {
    
     const { baseURL} = useContext(Context);
 
@@ -11,7 +11,8 @@ const About = () => {
         <Grid108010
             col2={
                 <>
-                <h3>Name: Test</h3>
+                <h3>Username: {user.username}</h3>
+                <h3>Name: {user.name}</h3>
                 </>
             }
         />

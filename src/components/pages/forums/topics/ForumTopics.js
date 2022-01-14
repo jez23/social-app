@@ -10,9 +10,9 @@ import Grid108010 from "../../../grids/Grid108010";
 
 const ForumTopics = () => {
   let { category_slug } = useParams();
-  const { baseUrl } = useContext(Context);
+  const { baseUrl,  topics, setTopics } = useContext(Context);
 
-  const [topics, setTopics] = useState([]);
+  /* const [topics, setTopics] = useState([]); */
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {

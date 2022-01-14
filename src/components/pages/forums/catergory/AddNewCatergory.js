@@ -22,7 +22,7 @@ const AddNewCatergory = ({ categories, setCategories }) => {
       body: JSON.stringify({
         title: title,
         description: description,
-        owner: loggedInUser.username
+        owner: loggedInUser[0].username
       })})
         .then((res) => {
             if(res.status !== 201){

@@ -72,45 +72,8 @@
     justify-content: flex-end;
 }
 
-.upVote{
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    border: 2px solid black;
-    border-radius: 20px;
-}
-.upVote p{
-    margin-bottom: 0px;
-}
-.upVote__text{
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    flex-direction: column;
-    padding: 12px;
-    box-sizing: border-box;
-}
-.upVote__buttons{
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    font-size: 25px;
-    justify-content: center;
-    align-items: center;
-}
-.upVote__buttons .vote_plus:hover,
-.topicCard__upvote .vote_plus:hover{
-    color: green;
-    cursor: pointer;
-    transition: all 500ms;
-    transform: scale(1.1);
-}
-.upVote__buttons .vote_minus:hover,
-.topicCard__upvote .vote_minus:hover{
-    color: red;
-    cursor: pointer;
-    transition: all 500ms;
-    transform: scale(1.1);
-}
+
+
 
 
 

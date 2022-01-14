@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import ReactDOM from 'react-dom';
 import { Link } from "react-router-dom"; 
+import TopicCard from './../pages/forums/topics/TopicCard';
 
 /* import { CSSTransition } from "react-transition-group"; */
 
@@ -15,8 +16,16 @@ const SearchPopUp = () => {
     const {   
         showSearchPopUp,
         setShowSearchPopUp,
-        searchData } = useContext(Context);
+        searchData,
+        setSearchData,
+        searchInput,
+        setSearchInput, } = useContext(Context);
 
+const handleClose = () => {
+    setShowSearchPopUp(!showSearchPopUp);
+    setSearchData([]);
+    setSearchInput('');
+}
 
 return ReactDOM.createPortal(
     showSearchPopUp &&  
@@ -37,18 +46,12 @@ return ReactDOM.createPortal(
                     col2={
                     <div className="searchContainer">
                     <div className="searchContainer__close">
-                        <button className="btn secondary" onClick={() => setShowSearchPopUp(!showSearchPopUp)}>Close</button>
+                        <button className="btn secondary" onClick={handleClose}>Close</button>
                     </div>
                     <SearchInput />
-                    {searchData && <p className="searchContainer__numResult">{searchData.count? searchData.count : ''} results</p>}
-                    {searchData && searchData.resultsArticles && <h3>Articles</h3>}
-                    {searchData && (searchData.resultsArticles.length > 0 ? searchData.resultsArticles.map(post => {
-                        return <div><Link to={`/articles/${post.slug}`} onClick={() => setShowSearchPopUp(!showSearchPopUp)}><p>{post.title}</p></Link></div>
-                    }) : <p>No articles found matching this search.</p>)}
-                    {searchData && searchData.resultsExercises && <h3>Exercises</h3>}
-                    {searchData && (searchData.resultsExercises.length > 0 ? searchData.resultsExercises.map(post => {
-                        return <div><Link to={`/exercise/${post.slug}`} onClick={() => setShowSearchPopUp(!showSearchPopUp)}><p>{post.title}</p></Link></div>
-                    }): <p>No exercises found matching this search.</p>)}
+                    {searchData && searchData.map(topic => {
+                        return <TopicCard topic={topic} topics={searchData} setTopics={setSearchData}/>
+                    })}
                     </div>
                 }/>
                 </>

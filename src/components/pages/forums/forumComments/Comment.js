@@ -21,9 +21,12 @@ const Comment = ({ comment, comments, setComments }) => {
         <Grid7030
           col1={<p>{comment.body}</p>}
           col2={
-            loggedInUser.username === comment.author ? (
+            loggedInUser.length > 0 ? loggedInUser[0].username === comment.author ? (
                 <DeleteComment comment={comment} comments={comments} setComments={setComments}/>
-            ) : (
+            ): <Link
+            to={`/members-directory/profile/${comment.author}`}
+            className="btn primary"
+          >Profile</Link> : (
               <Link
                 to={`/members-directory/profile/${comment.author}`}
                 className="btn primary"

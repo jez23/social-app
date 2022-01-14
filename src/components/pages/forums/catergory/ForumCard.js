@@ -29,7 +29,7 @@ const ForumCard =  ({ category, categories, setCategories }) => {
                 </div>
                 <div className="forumTableListPost__lastPosts">
                     {/* <span>0</span> */}
-                    {category.owner === loggedInUser.username? < DeleteCategory category={category} categories={categories} setCategories={setCategories}/> : <p>Created by: {category.owner}</p> }
+                    {loggedInUser.length > 0 ? category.owner === loggedInUser[0].username? < DeleteCategory category={category} categories={categories} setCategories={setCategories}/> : <p>Created by: {category.owner}</p>: <p>Created by: {category.owner}</p> }
                 </div>
             </div>
    

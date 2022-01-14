@@ -64,8 +64,25 @@
     height: 100%;
 }
 
+.upVote{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    border: 2px solid black;
+    border-radius: 20px;
+}
+.upVote p{
+    margin-bottom: 0px;
+}
+.upVote__text{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    padding: 12px;
+    box-sizing: border-box;
+}
+
 .upVote__buttons{
-    grid-area: upVoteButtons;
     display: flex;
     flex-direction: column;
     gap: 5px;
