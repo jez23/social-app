@@ -1,6 +1,10 @@
-# Getting Started with Create React App
+# Project Title
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Frontend API for a Social Media Blog.
+
+## Hosted Frontend 
+
+You can see a hosted version of the social app via this link: https://jezblackmore-socail-app.netlify.app/
 
 ## Available Scripts
 
