@@ -7,13 +7,16 @@ import DeleteTopics from "./DeleteTopics";
 
 const ForumTableListTopics = ({ topic, topics, setTopics }) => {
 
-  const { loggedInUser } = useContext(Context);
+  const { loggedInUser, setShowSearchPopUp, setSearchData, setSearchInput } = useContext(Context);
 
   let navigate = useNavigate();
 
     const handleLink = (e) => {
         e.stopPropagation();
         navigate(`/forums/category/${topic.category}/${topic.slug}`);
+        setShowSearchPopUp(false);
+        setSearchData([]);
+        setSearchInput('');
     }
   return (
     <div onClick={handleLink}>
