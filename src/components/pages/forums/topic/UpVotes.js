@@ -1,15 +1,13 @@
 import React from 'react';
+import VoteUpOrDownTopic from './VoteUpOrDownTopic';
 
-const UpVotes = ({ topic }) => {
+const UpVotes = ({ topic, topicSlug, setTopic}) => {
   return (
     <div className="upVote">
       <div className="upVote__text">
         <p>Votes {topic.votes}</p>
       </div>
-      <div className='upVote__buttons'>
-        <i className="fa fa-arrow-circle-o-up" aria-hidden="true"></i>
-        <i className="fa fa-arrow-circle-o-down" aria-hidden="true"></i>
-      </div>
+      <VoteUpOrDownTopic topic={topic} setTopic={setTopic} topicSlug={topicSlug}/>
     </div>
   );
 };

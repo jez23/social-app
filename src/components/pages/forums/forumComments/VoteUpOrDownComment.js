@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
-import Context from "../../../contexts/Context";
+import Context from "../../../../contexts/Context";
 
-import Grid3070 from '../../grids/Grid3070';
+import Grid3070 from '../../../grids/Grid3070';
 
 const VoteUpOrDown = ({ comment, comments, setComments  }) => {
 
@@ -16,8 +16,7 @@ const VoteUpOrDown = ({ comment, comments, setComments  }) => {
             return singleComment;
         })
 
-        setComments(updatedComments)
-     /*    console.log("GRRRRRR", comment.comment_id); */
+        setComments(updatedComments);
 
         fetch(`${baseUrl}/comments/${comment.comment_id}`,{
             method: "PATCH",

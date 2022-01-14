@@ -4,7 +4,7 @@ import Grid206020 from "../../../grids/Grid206020";
 
 const AddNewCatergory = ({ categories, setCategories }) => {
 
-  const { baseUrl } = useContext(Context);
+  const { baseUrl, loggedInUser } = useContext(Context);
 
   const [showDropDown, setShowDropDown] = useState(false);
   const [title, setTitle] = useState("");
@@ -22,9 +22,11 @@ const AddNewCatergory = ({ categories, setCategories }) => {
       body: JSON.stringify({
         title: title,
         description: description,
+        owner: loggedInUser.username
       })})
         .then((res) => {
             if(res.status !== 201){
+
                 setErrorMsg("Category title already exists");
                 throw "Category title already exists";
             }else {

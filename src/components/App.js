@@ -3,18 +3,19 @@ import { Routes, Route } from "react-router-dom";
 import { ConstProvider } from "../contexts/Context"; 
 
 import "../css/imports.css";
-import ScrollToTop from "./ScrollToTop";
+
 
 import Header from "../components/header/Header";
-import Home from "../components/pages/Home";
+import AllReviews from "../components/pages/allReviews/AllReviews";
 import Forums from "../components/pages/forums/catergory/Forums1";
 import ForumTopics from "./pages/forums/topics/ForumTopics";
 import ForumTopic from "./pages/forums/topic/ForumTopic";
 import Login from "../components/pages/login/Login";
 import Register from "../components/pages/register/Register";
 import Profile from "../components/pages/profile/Profile";
-import ProfileSettings from "../components/pages/userInfo/profileSettings/ProfileSettings";
+/* import ProfileSettings from "../components/pages/userInfo/profileSettings/ProfileSettings"; */
 import MembersDirectory from "../components/pages/membersDirectory/MembersDirectory";
+import SearchPopUp from './search/SearchPopUp';
 import CookiePolicy from "../components/pages/legal/CookiePolicy";
 import PrivacyPolicy from "../components/pages/legal/PrivacyPolicy";
 import TermsAndConditions from "../components/pages/legal/TermsAndConditions";
@@ -33,7 +34,7 @@ const App = () => {
     
           <Routes>
             
-             <Route path="/"  element={<Forums />} /> 
+             <Route path="/"  element={<AllReviews />} /> 
 
             <Route path="/login" element={<Login />} /> 
             <Route path="/register" element={<Register />} />
@@ -42,8 +43,8 @@ const App = () => {
             <Route path="/forums" element={<Forums />} />
             <Route exact path="/forums/category/:category_slug" element={<ForumTopics />}/>
             <Route path="/forums/category/:category_slug/:topic_slug" element={<ForumTopic />}/>
-            <Route path="/settings" element={<ProfileSettings />} />
-
+          {/*   <Route path="/settings" element={<ProfileSettings />} /> */}
+ 
             <Route path="/members-directory" element={<MembersDirectory />} />
 
             <Route path="/cookie-policy" element={<CookiePolicy />} />   
@@ -54,14 +55,15 @@ const App = () => {
               path="/unauthorised-permissions"
               element={<UnauthorisedPermissions />}
             />
-            <Route element={<Error404 />} /> 
+            <Route path='*' element={< Error404 />}/>
+           {/*  <Route Path="*" element={<Error404 />} />  */}
           
           </Routes>
 
         </div>
 
         <CookieNotification />
-
+        <SearchPopUp />
         <Footer />
         </ConstProvider>
     </>

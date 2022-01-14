@@ -1,20 +1,31 @@
 import React, {useState, useContext} from 'react';
+import { useParams } from "react-router-dom";
+
 import Grid206020 from '../../../grids/Grid206020';
 import Context from '../../../../contexts/Context';
 
-const AddNewTopic = ({topics, setTopics, category}) => {
+const AddNewTopic = ({topics, setTopics}) => {
 
-    const { baseUrl, loggedInUser } = useContext(Context);
+    const { category_slug } = useParams();
+    const { baseUrl, loggedInUser, allCategories, setAllCategories } = useContext(Context);
     const [showDropDown, setShowDropDown] = useState(false);
     const [title, setTitle] = useState('');
     const [description, setDesription] = useState('');
     const [designer, setDesigner] = useState('');
-    const [categoryDropDown, setCategoryDropDown] = useState(category);
+    const [categoryDropDown, setCategoryDropDown] = useState('');
+    const [catSlug, setCatSlug] = useState(category_slug);
+  
     const [errorMsg, setErrorMsg] = useState("");
 
     const handleSubmit = (e) => {
         e.preventDefault();
-    
+    console.log({
+        owner: loggedInUser.username,
+        title: title,
+        review_body: description,
+        designer: designer,
+        category: categoryDropDown ,
+      })
         fetch(`${baseUrl}/reviews`, {
           method: "POST",
           headers: {
@@ -25,22 +36,24 @@ const AddNewTopic = ({topics, setTopics, category}) => {
             title: title,
             review_body: description,
             designer: designer,
-            category: category,
+            category: categoryDropDown,
           })})
             .then((res) => {
-                if(res.status !== 201){
+                
+                 if(res.status !== 201){
                     setErrorMsg("Topic title already exists");
                     throw "Topic title already exists";
-                }else {
+                }else { 
                     return res.json();
-                }
+                 } 
             })
             .then((data) => {
+    
                 setErrorMsg("")
                 setTitle('')
                 setDesription('');
                 setDesigner('');
-                console.log(topics)
+               
                 setTopics([data.review , ...topics])
             })
             .catch(err => console.log(err))
@@ -59,9 +72,13 @@ const AddNewTopic = ({topics, setTopics, category}) => {
                         {!!errorMsg && <p className="errorMesssage">{errorMsg}</p>}
                         <textarea required placeholder="Catergory Description" value={description} onChange={(e) => setDesription(e.target.value)}/>
                         <input required placeholder="Designer" value={designer} onChange={(e) => setDesigner(e.target.value)} />
-                        <select required>
-                            <option value={categoryDropDown}>{categoryDropDown}</option>
-                        </select>
+                     
+                       
+                        {allCategories && allCategories.length > 0 ? <select required onChange={(e) => setCategoryDropDown(e.target.value)}>
+                            {allCategories.map((cat, key) => {
+                                return <option value={cat.slug} key={key}>{cat.slug}</option>
+                            })}
+                        </select>: <input disabled placeholder={catSlug} value={catSlug}/>}
                         <button type="submit" className="btn primary">Add Post</button>
                     </form>
                 }/>

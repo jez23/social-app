@@ -33,6 +33,7 @@ const ForumTopics = () => {
 
   return (
     <Grid108010
+        custClassMain={'pad20-m'}
       col2={
         <div className="forumTopic">
             <Grid5050 
@@ -41,7 +42,7 @@ const ForumTopics = () => {
                     <PageTitleBar title={topic.title} />
                 }
                 col2={
-                    <UpVotes topic={topic}/>
+                    <UpVotes topic={topic} setTopic={setTopic}/>
                 }
             />
           

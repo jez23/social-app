@@ -28,6 +28,8 @@
 .info_card img{
     width: 100%;
     text-align: center;
+    height: 200px;
+    object-fit: contain;
 } 
 .info_card__meta{
     width: 100%;

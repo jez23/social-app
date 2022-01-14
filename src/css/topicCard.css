@@ -1,7 +1,7 @@
 .topicCard{
         display: grid;
         grid-template-columns: repeat(7, 1fr);
-        grid-template-areas: "upVote topicImage topicImage topicMeta topicMeta topicVotes topicVotes";
+        grid-template-areas: "upVoteButtons topicImage topicImage topicMeta topicMeta topicVotes topicVotes";
         cursor: pointer;
         padding: 5px;
         border-radius: 10px;
@@ -62,16 +62,46 @@
     align-items: center;
     font-size: 25px;
     height: 100%;
-
-
 }
+
+.upVote__buttons{
+    grid-area: upVoteButtons;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    font-size: 25px;
+    justify-content: center;
+    align-items: center;
+}
+.upVote__buttons .vote_plus:hover,
+.topicCard__upvote .vote_plus:hover{
+    color: green;
+    cursor: pointer;
+    transition: all 500ms;
+    transform: scale(1.1);
+}
+.upVote__buttons .vote_minus:hover,
+.topicCard__upvote .vote_minus:hover{
+    color: red;
+    cursor: pointer;
+    transition: all 500ms;
+    transform: scale(1.1);
+}
+
+
 @media only screen and (max-width: 800px) {
     .topicCard{
         display: grid;
         grid-template-columns: repeat(1, 1fr);
         grid-template-areas: 
+        "upVoteButtons"
         "topicImage"
         "topicMeta" 
-        "topicVotes";
+        "topicVotes"
+    }
+    .upVote__buttons{
+        flex-direction: row;
+        padding: 15px 0px 0px 0px;
+        font-size: 40px;
     }
 }

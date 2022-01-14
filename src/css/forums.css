@@ -97,16 +97,34 @@
     justify-content: center;
     align-items: center;
 }
-
+.upVote__buttons .vote_plus:hover,
 .topicCard__upvote .vote_plus:hover{
     color: green;
     cursor: pointer;
     transition: all 500ms;
     transform: scale(1.1);
 }
+.upVote__buttons .vote_minus:hover,
 .topicCard__upvote .vote_minus:hover{
     color: red;
     cursor: pointer;
     transition: all 500ms;
     transform: scale(1.1);
+}
+
+
+
+
+
+@media only screen and (max-width: 600px) {
+    .forumTable__header{
+        display: none;
+    }
+
+    .forumTableListPost{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-areas: "title title title"
+        "numTopic numPosts lastPosts";
+    }
 }

@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 import Context from "../../../../contexts/Context";
 
-import TopicCard from "../TopicCard";
+import TopicCard from "./TopicCard";
 import AddNewTopic from './AddNewTopic';
 
 import PageTitleBar from "../../../pageTitleBar/PageTitlebar";
@@ -49,7 +49,7 @@ const ForumTopics = () => {
           ) : (
             <div className="cardLists">
             {topics.length > 0 ? topics.map((topic, key) => {
-              return <TopicCard topic={topic} key={`topic-${key}`} />;
+              return <TopicCard topic={topic} key={`topic-${key}`} topics={topics} setTopics={setTopics}/>;
             }) : topics && <p>There are currently no posts for this topic.</p>}
             </div>
           )}

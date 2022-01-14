@@ -39,4 +39,14 @@
 .forumTopic img{
     max-height: 400px;
     object-fit: contain;
+    width: 100%;
+}
+
+@media only screen and (max-width: 800px) {
+    .forumTopic__body__meta{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-self: center;
+    }
 }

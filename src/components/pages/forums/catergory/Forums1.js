@@ -4,7 +4,7 @@ import Context from '../../../../contexts/Context';
 
 import PageTitleBar from '../../../pageTitleBar/PageTitlebar';
 import ForumPageTableLayout from "../ForumPageTableLayout";
-import ForumCard from "../ForumCard";
+import ForumCard from "./ForumCard";
 import AddNewCatergory from "./AddNewCatergory";
 import Grid108010 from "../../../grids/Grid108010";
   
@@ -35,10 +35,7 @@ const Forums = () => {
           <ForumPageTableLayout>
           {isLoading? <p>Loading....</p> : <div className="cardLists"> {categories.map((category, key) => {
               return (
-                <Link to={`/forums/category/${category.slug}`} key={`${category}-${key}`}>
-                    <ForumCard category={category} />
-                </Link>
-                
+                    <ForumCard category={category} categories={categories} setCategories={setCategories}/>
               ) 
             })} </div>}
             </ForumPageTableLayout>

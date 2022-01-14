@@ -4,18 +4,18 @@ import { Link, withRouter } from 'react-router-dom';
 import Context from '../../contexts/Context';
 
 
-const LoginTopNav = ({ history }) => {
+const LoginTopNav = () => {
 
-    const { baseUrl } = useContext(Context);
+    const { baseUrl, loggedInUser, setShowSearchPopUp } = useContext(Context);
    
-   const logo = `https://urbacise.s3-us-west-1.amazonaws.com/app/logos/urbacise/logo236x50.png`;
+   const logo = `https://www.pinclipart.com/picdir/big/347-3475475_generic-company-logo-clipart-best-generic-company-logo.png`;
    
     return (
         <div className="header__login">
            
 
             <div className="header__login__search">
-                    <button className="btn primary"><i className="fa fa-search" aria-hidden="true"></i><span className="searchWording">Search</span></button>
+                    <button className="btn primary" onClick={() => setShowSearchPopUp(true)}><i className="fa fa-search" aria-hidden="true"></i><span className="searchWording">Search</span></button>
                 </div>
 
                 <div className="header__login__logo">
@@ -24,10 +24,10 @@ const LoginTopNav = ({ history }) => {
               
             <div className="header__login__login">
                 <ul>
-                     <li><Link to="/login" className="btn primary">Login</Link></li>
-                    <li><Link to="/register" className="btn primary">Register</Link></li>
-                   <li><button className="btn primary">Logout</button></li>
-                    <li><button className="btn primary">Account</button></li> 
+                {!loggedInUser &&  <><li><Link to="/login" className="btn primary">Login</Link></li>
+                    <li><Link to="/register" className="btn primary">Register</Link></li></>}
+                  {loggedInUser &&  <><li><button className="btn primary">Logout</button></li>
+                    <li><button className="btn primary">Account</button></li></> }
                 </ul>
             </div>
         </div>

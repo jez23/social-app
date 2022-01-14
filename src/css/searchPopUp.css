@@ -1,0 +1,47 @@
+.searchPopUp {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    background-color: rgba(250,250,250,0.96);
+    z-index: 300;
+  }
+  
+  .searchPopUp-enter {
+    opacity: 0;
+  }
+  .searchPopUp-enter-active {
+    opacity: 1;
+    transition: opacity 500ms;
+  }
+  .searchPopUp-exit {
+    opacity: 1;
+  }
+  .searchPopUp-exit-active {
+    opacity: 0;
+    transition: opacity 500ms;
+  }
+  
+  .searchPopUp a {
+    text-decoration: underline;
+    color: black;
+  }
+  
+  .searchPopUp a:hover {
+    color: #9f0102;
+  }
+  .searchContainer__numResult{
+    text-align: center;
+  }
+  
+  .searchContainer{
+   display: grid;
+   grid-template-columns: repeat(1, 1fr);
+  }
+  .searchContainer__close{
+    display: grid;
+    justify-content: end;
+    padding-top: 20px;
+    padding-bottom: 0px;
+  }

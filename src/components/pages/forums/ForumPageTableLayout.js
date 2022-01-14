@@ -5,7 +5,7 @@ const ForumTable = ({ children }) => {
     return (
         <div className="forumTable">
             <div className="forumTable__header">
-                <div className="forumTable__header__title">
+              {/*   <div className="forumTable__header__title">
                     <h3>Title</h3>
                 </div>
                 <div className="forumTable__header__topics">
@@ -16,7 +16,7 @@ const ForumTable = ({ children }) => {
                 </div>
                 <div className="forumTable__header__lastPost">
                     <h3>Last Post</h3>
-                </div>
+                </div> */}
             </div>
            { children }
         </div>
