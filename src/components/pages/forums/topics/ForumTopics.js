@@ -40,6 +40,7 @@ const ForumTopics = () => {
 
   return (
     <Grid108010
+      custClassMain={"pad20-m"}
       col2={
         <>
           <PageTitleBar title="Reviews" />

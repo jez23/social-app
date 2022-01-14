@@ -28,6 +28,7 @@ const Forums = () => {
 
   return (
     <Grid108010
+      custClassMain={"pad20-m"}
       col2={
         <>
           <PageTitleBar title="Forums" />

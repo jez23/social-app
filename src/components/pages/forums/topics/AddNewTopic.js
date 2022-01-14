@@ -13,7 +13,7 @@ const AddNewTopic = ({topics, setTopics}) => {
     const [description, setDesription] = useState('');
     const [designer, setDesigner] = useState('');
     const [categoryDropDown, setCategoryDropDown] = useState('');
-    const [catSlug, setCatSlug] = useState(category_slug);
+    const [catSlug, setCatSlug] = useState('');
   
     const [errorMsg, setErrorMsg] = useState("");
 
@@ -36,7 +36,7 @@ const AddNewTopic = ({topics, setTopics}) => {
             title: title,
             review_body: description,
             designer: designer,
-            category: categoryDropDown,
+            category: categoryDropDown || catSlug,
           })})
             .then((res) => {
                 
@@ -75,10 +75,14 @@ const AddNewTopic = ({topics, setTopics}) => {
                      
                        
                         {allCategories && allCategories.length > 0 ? <select required onChange={(e) => setCategoryDropDown(e.target.value)}>
+                            <option value="">Select Category</option>
                             {allCategories.map((cat, key) => {
                                 return <option value={cat.slug} key={key}>{cat.slug}</option>
                             })}
-                        </select>: <input disabled placeholder={catSlug} value={catSlug}/>}
+                        </select>: <select required value={catSlug} onChange={(e) => setCatSlug(e.target.value)}>
+                            <option value="">Select Category</option>
+                            <option value={category_slug}>{category_slug}</option>
+                        </select>}
                         <button type="submit" className="btn primary">Add Post</button>
                     </form>
                 }/>

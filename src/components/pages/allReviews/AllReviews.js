@@ -41,7 +41,6 @@ const AllReviews = () => {
       .then(res => res.json())
       .then(data => {
           
-        console.log(data.categories)
             setAllCategories(data.categories);
      /*      setCategories(data.categories); */
         /*   setIsLoading(false); */
@@ -56,6 +55,7 @@ const AllReviews = () => {
 
   return (
     <Grid108010
+    custClassMain={"pad20-m"}
       col2={
         <>
           <PageTitleBar title="Reviews" />
