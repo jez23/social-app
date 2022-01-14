@@ -52,7 +52,12 @@ const Filters = ({queries, setQueries}) => {
                 <option value="asc">asc</option>
                 <option value="desc">desc</option>
             </select>
-            <select value={categoryQuery} onChange={(e) => setCategoryQuery(e.target.value)}>
+            <button type="submit" class="btn secondary">Filter</button>
+        </form>
+
+
+       {/*  <form>
+         <select value={categoryQuery} onChange={(e) => setCategoryQuery(e.target.value)}>
                 <option value="strategy">strategy</option>
                 <option value="hidden-roles">hidden-roles</option>
                 <option value="dexterity">dexterity</option>
@@ -62,7 +67,7 @@ const Filters = ({queries, setQueries}) => {
                 <option value="engine-building">engine-building</option>
             </select>
             <button type="submit" class="btn secondary">Filter</button>
-        </form>
+        </form> */}
 
         </div>
     )
