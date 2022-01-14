@@ -13,6 +13,7 @@ export function ConstProvider({children}){
     const [topics, setTopics] = useState([]);
     const [searchData, setSearchData] = useState("");
     const [ searchInput, setSearchInput] = useState("");
+    const [showSideNavMobile, setShowSideNavMobile] = useState(false);
 
     const [loggedInUser, setLoggedInUser] = useState([{
         avatar_url: "https://vignette.wikia.nocookie.net/mrmen/images/4/4f/MR_JELLY_4A.jpg/revision/latest?cb=20180104121141",
@@ -41,7 +42,9 @@ export function ConstProvider({children}){
             searchData,
             setSearchData,
             searchInput,
-            setSearchInput
+            setSearchInput,
+            showSideNavMobile,
+            setShowSideNavMobile
              }}>
         {children}
         </Context.Provider>

@@ -6,6 +6,7 @@ import "../css/imports.css";
 
 
 import Header from "../components/header/Header";
+import SideNavMobile from '../components/header/SideNavMobile';
 import AllReviews from "../components/pages/allReviews/AllReviews";
 import Forums from "../components/pages/forums/catergory/Forums1";
 import ForumTopics from "./pages/forums/topics/ForumTopics";
@@ -29,7 +30,7 @@ const App = () => {
     <>
       <ConstProvider>
         <Header />
-
+        <SideNavMobile />
         <div className="container">
     
           <Routes>
