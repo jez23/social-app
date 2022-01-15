@@ -1,6 +1,9 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
+import Context from '../../../contexts/Context';
 
 const Filters = ({queries, setQueries}) => {
+
+    const { allCategories } = useContext(Context);
 
     const [categoryQuery, setCategoryQuery ] = useState('')
     const [orderQuery, setOrderQuery] = useState('')
@@ -8,12 +11,6 @@ const Filters = ({queries, setQueries}) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        
-        console.log({
-            categoryQuery,
-            orderQuery,
-            sortByQuery
-        })
 
         let queryArray = [];
 
@@ -56,13 +53,16 @@ const Filters = ({queries, setQueries}) => {
             </select>
             <select value={categoryQuery} onChange={(e) => setCategoryQuery(e.target.value)}>
                 <option value="">Select Category</option>
-                <option value="strategy">strategy</option>
+                {allCategories && allCategories.map((category, key) => {
+                     return   <option value={category.slug} key={`cat-${key}`}>{category.title}</option>;
+                })}
+            {/*   /*   <option value="strategy">strategy</option>
                 <option value="hidden-roles">hidden-roles</option>
                 <option value="dexterity">dexterity</option>
                 <option value="push-your-luck">push-your-luck</option>
                 <option value="roll-and-write">roll-and-write</option>
                 <option value="deck-building">deck-building</option>
-                <option value="engine-building">engine-building</option>
+                <option value="engine-building">engine-building</option> */ }
             </select>
             <button type="submit" class="btn secondary">Filter</button>
         </form>

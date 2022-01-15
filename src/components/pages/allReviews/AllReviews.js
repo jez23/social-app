@@ -5,18 +5,19 @@ import Context from "../../../contexts/Context";
 import TopicCard from "../forums/topics/TopicCard";
 import AddNewTopic from '../forums/topics/AddNewTopic';
 import Filters from './Filters';
+import Pagination from '../../pagination/Pagination';
 
 import PageTitleBar from "../../pageTitleBar/PageTitlebar";
 import Grid108010 from "../../grids/Grid108010";
 
 const AllReviews = () => {
 /*   let { category_slug } = useParams(); */
-  const { baseUrl, allCategories, setAllCategories,  topics, setTopics } = useContext(Context);
+  const { baseUrl, allCategories, setAllCategories,  topics, setTopics, paginationCurrentPageTopics } = useContext(Context);
 
  /*  const [topics, setTopics] = useState([]); */
   const [isLoading, setIsLoading] = useState(true);
   const [queries, setQueries] = useState('');
-
+  const [totalCount, setTotalCount] = useState(null);
  /*  const [categories, setCategories] = useState([]); */
 
   useEffect(() => {
@@ -31,23 +32,21 @@ const AllReviews = () => {
         }
       })
       .then((data) => {
-          console.log(data)
         setTopics(data.reviews);
+        setTotalCount(data.total_count);
         setIsLoading(false);
         return
-      }).then(() => {
-        return  fetch(`${baseUrl}/categories`);
-      })
-      .then(res => res.json())
-      .then(data => {
-          
-            setAllCategories(data.categories);
-     /*      setCategories(data.categories); */
-        /*   setIsLoading(false); */
       })
       .catch((err) => console.log(err));
-  }, [queries]);
 
+  }, [queries, paginationCurrentPageTopics]);
+
+  useEffect(() => {
+    return  fetch(`${baseUrl}/categories`)
+      .then(res => res.json())
+      .then(data => setAllCategories(data.categories))
+      .catch((err) => console.log(err));
+  }, [])
   
    
 
@@ -64,12 +63,15 @@ const AllReviews = () => {
           {isLoading ? (
             <p>Loading....</p>
           ) : (
+            <>
             <div className="cardLists">
             {topics.length > 0 ? topics.map((topic, key) => {
               return <TopicCard topic={topic} key={`topic-${key}`} topics={topics} setTopics={setTopics}/>;
             }) : topics && <p>There are currently no posts for this topic.</p>}
             </div>
-          )}
+            < Pagination totalCount={totalCount}/>
+            </>
+          )}    
         </>
       }
     />

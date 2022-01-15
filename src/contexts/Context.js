@@ -14,7 +14,8 @@ export function ConstProvider({children}){
     const [searchData, setSearchData] = useState("");
     const [ searchInput, setSearchInput] = useState("");
     const [showSideNavMobile, setShowSideNavMobile] = useState(false);
-
+    const [paginationCurrentPageTopics, setPaginationCurrentPageTopics] = useState(0);
+    
     const [loggedInUser, setLoggedInUser] = useState([{
         avatar_url: "https://vignette.wikia.nocookie.net/mrmen/images/4/4f/MR_JELLY_4A.jpg/revision/latest?cb=20180104121141",
         name: "Jess Jelly",
@@ -44,7 +45,9 @@ export function ConstProvider({children}){
             searchInput,
             setSearchInput,
             showSideNavMobile,
-            setShowSideNavMobile
+            setShowSideNavMobile,
+            paginationCurrentPageTopics,
+            setPaginationCurrentPageTopics
              }}>
         {children}
         </Context.Provider>
