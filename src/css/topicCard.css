@@ -112,6 +112,13 @@
     transform: scale(1.1);
 }
 
+.topicCard__upvote p,
+.upVote__buttons p {
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
 
 @media only screen and (max-width: 800px) {
     .topicCard{

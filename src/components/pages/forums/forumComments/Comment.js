@@ -3,19 +3,19 @@ import { Link } from 'react-router-dom';
 
 import Context from "../../../../contexts/Context";
 
-import VoteUpOrDown from "./VoteUpOrDownComment";
+import VoteUpOrDownComment from "./VoteUpOrDownComment";
 import DeleteComment from "./DeleteComment";
-import Grid3070 from "../../../grids/Grid3070";
+import Grid4060 from "../../../grids/Grid4060";
 import Grid7030 from "../../../grids/Grid7030";
 
 const Comment = ({ comment, comments, setComments }) => {
   const { loggedInUser } = useContext(Context);
 
   return (
-    <Grid3070
+    <Grid4060
       /*   custClassMain={'commentCard'} */
       col1={
-        <VoteUpOrDown comment={comment} comments={comments} setComments={setComments}/>
+        <VoteUpOrDownComment comment={comment} comments={comments} setComments={setComments}/>
       }
       col2={
         <Grid7030

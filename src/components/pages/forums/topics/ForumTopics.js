@@ -43,7 +43,7 @@ const ForumTopics = () => {
       custClassMain={"pad20-m"}
       col2={
         <>
-          <PageTitleBar title="Reviews" />
+          <PageTitleBar title={`Reviews for ${category_slug}`} />
           <AddNewTopic topics={topics} setTopics={setTopics} category={category_slug}/>
           {isLoading ? (
             <p>Loading....</p>

@@ -9,6 +9,14 @@ const Filters = ({queries, setQueries}) => {
     const [orderQuery, setOrderQuery] = useState('')
     const [sortByQuery, setSortByQuery] = useState('')
 
+    const handleReset = () => {
+        setCategoryQuery('');
+        setOrderQuery('');
+        setSortByQuery('');
+        setQueries('');
+        setPaginationCurrentPageTopics(0);
+    }
+
     const handleSubmit = (e) => {
         e.preventDefault();
        
@@ -57,6 +65,7 @@ const Filters = ({queries, setQueries}) => {
                 })}
             </select>
             <button type="submit" className="btn secondary">Filter</button>
+            <button className="btn tertiary" onClick={handleReset}>Reset</button>
         </form>
         </div>
     )

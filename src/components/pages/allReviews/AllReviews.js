@@ -65,7 +65,7 @@ const AllReviews = () => {
     custClassMain={"pad20-m"}
       col2={
         <>
-          <PageTitleBar title="Reviews" />
+          <PageTitleBar title="All Reviews" />
           <AddNewTopic topics={topics} setTopics={setTopics}/>
           <Filters queries={queries} setQueries={setQueries}/>
           {isLoading ? (
@@ -73,6 +73,7 @@ const AllReviews = () => {
           ) : (
             <>
             <div className="cardLists">
+              <p><strong>Showing {topics.length} of {totalCount}</strong></p>
             {topics.length > 0 ? topics.map((topic, key) => {
               return <TopicCard topic={topic} key={`topic-${key}`} topics={topics} setTopics={setTopics}/>;
             }) : topics && <p>There are currently no posts for this topic.</p>}

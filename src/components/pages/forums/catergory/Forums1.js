@@ -31,7 +31,7 @@ const Forums = () => {
       custClassMain={"pad20-m"}
       col2={
         <>
-          <PageTitleBar title="Forums" />
+          <PageTitleBar title="All Forums" />
           <AddNewCatergory categories={categories} setCategories={setCategories}/>
           <ForumPageTableLayout>
           {isLoading? <p>Loading....</p> : <div className="cardLists"> {categories.map((category, key) => {

@@ -37,6 +37,7 @@ const VoteUpOrDown = ({ comment, comments, setComments  }) => {
           custClassCol1={"commentCard__upvote"}
           col1={
             <div className="topicCard__upvote">
+              <p>Vote:</p>
               <i className="fa fa-arrow-circle-o-up vote_plus" aria-hidden="true" onClick={() => handleVote(1)}></i>
               <i className="fa fa-arrow-circle-o-down vote_minus" aria-hidden="true" onClick={() => handleVote(-1)}></i>
             </div>

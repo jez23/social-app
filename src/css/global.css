@@ -116,7 +116,7 @@ li {
 .tertiary:hover {
     transition: all 500ms;
     color: white;
-    background-color: #003429;
+    background-color: #5e706c;
 }
 
 .btn__tag {
