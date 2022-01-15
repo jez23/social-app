@@ -22,8 +22,16 @@ const AllReviews = () => {
 
   useEffect(() => {
     setIsLoading(true);
-    fetch(`${baseUrl}/reviews${queries}`)
+    let url ='';
+    if(queries){
+      url = `${baseUrl}/reviews${queries}&limit=10&p=0`;
+    } else {
+      url = `${baseUrl}/reviews?limit=10&p=${paginationCurrentPageTopics * 10}`;
+    }
+
+    fetch(url)
       .then((res) => {
+        console.log("now")
         if(res.status !== 200){
           setIsLoading(false);
           throw "No topics exist";

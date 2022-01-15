@@ -3,7 +3,7 @@ import Context from '../../../contexts/Context';
 
 const Filters = ({queries, setQueries}) => {
 
-    const { allCategories } = useContext(Context);
+    const { allCategories , setPaginationCurrentPageTopics} = useContext(Context);
 
     const [categoryQuery, setCategoryQuery ] = useState('')
     const [orderQuery, setOrderQuery] = useState('')
@@ -11,7 +11,7 @@ const Filters = ({queries, setQueries}) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-
+       
         let queryArray = [];
 
         if(categoryQuery){
@@ -29,7 +29,6 @@ const Filters = ({queries, setQueries}) => {
             let joinQuery = queryArray.join("&");
             let removeAnd = joinQuery.replace(joinQuery.charAt(1), "");
             setQueries(removeAnd)
-            console.log(removeAnd)
         }
 
     }
@@ -56,31 +55,9 @@ const Filters = ({queries, setQueries}) => {
                 {allCategories && allCategories.map((category, key) => {
                      return   <option value={category.slug} key={`cat-${key}`}>{category.title}</option>;
                 })}
-            {/*   /*   <option value="strategy">strategy</option>
-                <option value="hidden-roles">hidden-roles</option>
-                <option value="dexterity">dexterity</option>
-                <option value="push-your-luck">push-your-luck</option>
-                <option value="roll-and-write">roll-and-write</option>
-                <option value="deck-building">deck-building</option>
-                <option value="engine-building">engine-building</option> */ }
             </select>
-            <button type="submit" class="btn secondary">Filter</button>
+            <button type="submit" className="btn secondary">Filter</button>
         </form>
-
-
-       {/*  <form>
-         <select value={categoryQuery} onChange={(e) => setCategoryQuery(e.target.value)}>
-                <option value="strategy">strategy</option>
-                <option value="hidden-roles">hidden-roles</option>
-                <option value="dexterity">dexterity</option>
-                <option value="push-your-luck">push-your-luck</option>
-                <option value="roll-and-write">roll-and-write</option>
-                <option value="deck-building">deck-building</option>
-                <option value="engine-building">engine-building</option>
-            </select>
-            <button type="submit" class="btn secondary">Filter</button>
-        </form> */}
-
         </div>
     )
 }

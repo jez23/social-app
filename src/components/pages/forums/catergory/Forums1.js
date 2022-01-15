@@ -35,9 +35,7 @@ const Forums = () => {
           <AddNewCatergory categories={categories} setCategories={setCategories}/>
           <ForumPageTableLayout>
           {isLoading? <p>Loading....</p> : <div className="cardLists"> {categories.map((category, key) => {
-              return (
-                    <ForumCard category={category} categories={categories} setCategories={setCategories}/>
-              ) 
+              return <ForumCard category={category} key={`catorgory_${key}`} categories={categories} setCategories={setCategories}/>;
             })} </div>}
             </ForumPageTableLayout>
         </>
