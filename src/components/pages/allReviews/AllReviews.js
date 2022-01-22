@@ -1,44 +1,25 @@
 import React, { useState, useEffect, useContext } from "react";
-import { useParams } from "react-router-dom";
 import Context from "../../../contexts/Context";
+import { getAllTopicsQueryRequest, getAllCategoriesRequest } from '../../../utils/fetchQuestsForums';
 
-import TopicCard from "../forums/topics/TopicCard";
-import AddNewTopic from '../forums/topics/AddNewTopic';
+import TopicCard from "../forums/topicsListPage/TopicCard";
+import AddNewTopic from '../forums/topicsListPage/AddNewTopic';
 import Filters from './Filters';
 import Pagination from '../../pagination/Pagination';
-
 import PageTitleBar from "../../pageTitleBar/PageTitlebar";
-import Grid108010 from "../../grids/Grid108010";
 
 const AllReviews = () => {
-/*   let { category_slug } = useParams(); */
-  const { baseUrl, allCategories, setAllCategories,  topics, setTopics, paginationCurrentPageTopics } = useContext(Context);
 
- /*  const [topics, setTopics] = useState([]); */
+  const { setAllCategories,  topics, setTopics, paginationCurrentPageTopics } = useContext(Context);
+
   const [isLoading, setIsLoading] = useState(true);
   const [queries, setQueries] = useState('');
   const [totalCount, setTotalCount] = useState(null);
- /*  const [categories, setCategories] = useState([]); */
 
   useEffect(() => {
     setIsLoading(true);
-    let url ='';
-    if(queries){
-      url = `${baseUrl}/reviews${queries}&limit=10&p=0`;
-    } else {
-      url = `${baseUrl}/reviews?limit=10&p=${paginationCurrentPageTopics * 10}`;
-    }
 
-    fetch(url)
-      .then((res) => {
-        console.log("now")
-        if(res.status !== 200){
-          setIsLoading(false);
-          throw "No topics exist";
-        } else{
-          return res.json()
-        }
-      })
+    getAllTopicsQueryRequest(queries, paginationCurrentPageTopics)
       .then((data) => {
         setTopics(data.reviews);
         setTotalCount(data.total_count);
@@ -50,21 +31,13 @@ const AllReviews = () => {
   }, [queries, paginationCurrentPageTopics]);
 
   useEffect(() => {
-    return  fetch(`${baseUrl}/categories`)
-      .then(res => res.json())
+      getAllCategoriesRequest()
       .then(data => setAllCategories(data.categories))
       .catch((err) => console.log(err));
-  }, [])
-  
-   
-
-  
+  }, []);
 
   return (
-    <Grid108010
-    custClassMain={"pad20-m"}
-      col2={
-        <>
+    <div className="pad20-m center80">
           <PageTitleBar title="All Reviews" />
           <AddNewTopic topics={topics} setTopics={setTopics}/>
           <Filters queries={queries} setQueries={setQueries}/>
@@ -81,9 +54,7 @@ const AllReviews = () => {
             < Pagination totalCount={totalCount}/>
             </>
           )}    
-        </>
-      }
-    />
+    </div>
   );
 };
 

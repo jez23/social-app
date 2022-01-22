@@ -1,12 +1,9 @@
 import React from 'react';
 import PageTitleBar from '../../pageTitleBar/PageTitlebar';
-import Grid108010 from '../../grids/Grid108010';
 
 const TermsAndConditions = () => {
     return (
-        <Grid108010 
-            col2={
-                <>
+        <div className="center80">
                 <PageTitleBar title="Terms and Conditions" />
                 <div>
                     <h2>Welcome to Urbacise!</h2>
@@ -89,9 +86,7 @@ const TermsAndConditions = () => {
                     </ul>
                     <p>As long as the website and the information and services on the website are provided free of charge, we will not be liable for any loss or damage of any nature.</p>
                 </div>
-                </>
-            }
-        />
+        </div>
     )
 }
 

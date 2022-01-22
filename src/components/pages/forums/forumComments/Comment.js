@@ -5,19 +5,17 @@ import Context from "../../../../contexts/Context";
 
 import VoteUpOrDownComment from "./VoteUpOrDownComment";
 import DeleteComment from "./DeleteComment";
-import Grid4060 from "../../../grids/Grid4060";
 import Grid7030 from "../../../grids/Grid7030";
 
 const Comment = ({ comment, comments, setComments }) => {
   const { loggedInUser } = useContext(Context);
 
   return (
-    <Grid4060
-      /*   custClassMain={'commentCard'} */
-      col1={
-        <VoteUpOrDownComment comment={comment} comments={comments} setComments={setComments}/>
-      }
-      col2={
+    <div className="grid4060">
+        <div className="grid4060__col1">
+          <VoteUpOrDownComment comment={comment} comments={comments} setComments={setComments}/>
+        </div>
+        <div className="grid4060__col2">
         <Grid7030
           col1={<p>{comment.body}</p>}
           col2={
@@ -34,8 +32,8 @@ const Comment = ({ comment, comments, setComments }) => {
             )
           }
         />
-      }
-    />
+     </div>
+    </div>
   );
 };
 

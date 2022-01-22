@@ -3,14 +3,14 @@ import { Routes, Route } from "react-router-dom";
 import { ConstProvider } from "../contexts/Context"; 
 
 import "../css/imports.css";
-
+ 
 
 import Header from "../components/header/Header";
 import SideNavMobile from '../components/header/SideNavMobile';
 import AllReviews from "../components/pages/allReviews/AllReviews";
-import Forums from "../components/pages/forums/catergory/Forums1";
-import ForumTopics from "./pages/forums/topics/ForumTopics";
-import ForumTopic from "./pages/forums/topic/ForumTopic";
+import Forums from "../components/pages/forums/mainForumPage/Forums1";
+import ForumTopics from "./pages/forums/topicsListPage/ForumTopics";
+import ForumTopic from "./pages/forums//mainTopicPage/ForumTopic";
 import Login from "../components/pages/login/Login";
 import Register from "../components/pages/register/Register";
 import Profile from "../components/pages/profile/Profile";

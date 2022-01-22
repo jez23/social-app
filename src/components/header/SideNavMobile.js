@@ -11,17 +11,12 @@ const SideNavMobile = () => {
 
   return ReactDOM.createPortal(
 
-  
   /*   showSideNavMobile && (
    <div className="sideNavMobile__outer" onClick={() => setShowSideNavMobile(!showSideNavMobile)}> */
 
-
-
     showSideNavMobile && 
   <div className={`${showSideNavMobile? 'sideNavMobile__outer' : ''}`} onClick={() => setShowSideNavMobile(!showSideNavMobile)}> 
-            <div className={`${showSideNavMobile? 'sideNavMobile__inner' : ''}` } onClick={(e) => e.stopPropagation()}>
-
-        
+            <div className={`${showSideNavMobile? 'sideNavMobile__inner' : ''}` } onClick={(e) => e.stopPropagation()}> 
     
     <div className="sideNavMobile__inner__close">
                 <button className="btn secondary" onClick={() => setShowSideNavMobile(!showSideNavMobile)}>Close</button>
@@ -37,14 +32,7 @@ const SideNavMobile = () => {
                     }
                 </div>
             </div>
-           </div> 
-
-
-      
-        
-
-
-      
+           </div>
     ,
     document.getElementById("sideNavMobile")
   );

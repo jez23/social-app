@@ -1,24 +1,19 @@
-import React, { useEffect, useContext, useState } from "react";
-import { Link } from 'react-router-dom'; 
-import Context from '../../../../contexts/Context';
-
+import React, { useEffect, useState } from "react";
 import PageTitleBar from '../../../pageTitleBar/PageTitlebar';
-import ForumPageTableLayout from "../ForumPageTableLayout";
+
 import ForumCard from "./ForumCard";
 import AddNewCatergory from "./AddNewCatergory";
-import Grid108010 from "../../../grids/Grid108010";
-  
-const Forums = () => {
+import { getAllCategoriesRequest } from "../../../../utils/fetchQuestsForums";
 
-    const { baseUrl } = useContext(Context);
+const Forums = () => {
 
     const [categories, setCategories] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
       setIsLoading(true);
-        fetch(`${baseUrl}/categories`)
-        .then(res => res.json())
+        
+      getAllCategoriesRequest()
         .then(data => {
             setCategories(data.categories);
             setIsLoading(false);
@@ -27,20 +22,17 @@ const Forums = () => {
     }, [])
 
   return (
-    <Grid108010
-      custClassMain={"pad20-m"}
-      col2={
-        <>
+    <div className="pad20-m center80">
           <PageTitleBar title="All Forums" />
           <AddNewCatergory categories={categories} setCategories={setCategories}/>
-          <ForumPageTableLayout>
+          <div className="forumTable">
+            <div className="forumTable__header">
           {isLoading? <p>Loading....</p> : <div className="cardLists"> {categories.map((category, key) => {
               return <ForumCard category={category} key={`catorgory_${key}`} categories={categories} setCategories={setCategories}/>;
             })} </div>}
-            </ForumPageTableLayout>
-        </>
-      }
-    />
+            </div>
+            </div>
+    </div>
   );
 };
 

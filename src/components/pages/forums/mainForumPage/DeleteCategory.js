@@ -1,10 +1,7 @@
-import React, { useContext } from 'react';
-import Context from '../../../../contexts/Context';
-
+import React from 'react';
+import { deleteCatergoryRequest } from '../../../../utils/fetchQuestsForums';
 
 const DeleteTopics = ({category, categories, setCategories}) => {
-
-    const { baseUrl } = useContext(Context);
     
     const handleDelete = (e) => {
         e.stopPropagation();
@@ -16,30 +13,12 @@ const DeleteTopics = ({category, categories, setCategories}) => {
               return singleCategory;
             }
           });
-    
-          setCategories(updatedCategories);
-        
-    
-    
-          fetch(`${baseUrl}/categories/${category.slug}`, {
-            method: "DELETE",
-            headers: {
-              "Content-Type": "application/json",
-            },
-          })
-            .then((res) => {
-              if (res.status !== 204) {
-                console.log(res.status);
-                throw "Something went wrong deleting the category";
-              } else {
-                console.log("Deleted");
-              }
-            })
+            setCategories(updatedCategories);
+
+            deleteCatergoryRequest(category.slug)
             .catch((err) => console.log(err));
         }
     }
- 
-    
 
     return(
         <button className="btn delete" onClick={(e) => handleDelete(e)}>Delete</button>

@@ -2,30 +2,23 @@ import React, { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 import Context from "../../../../contexts/Context";
 
+import { getForumByCategoryRequest } from '../../../../utils/fetchQuestsForums';
+
 import TopicCard from "./TopicCard";
 import AddNewTopic from './AddNewTopic';
 
 import PageTitleBar from "../../../pageTitleBar/PageTitlebar";
-import Grid108010 from "../../../grids/Grid108010";
 
 const ForumTopics = () => {
   let { category_slug } = useParams();
-  const { baseUrl,  topics, setTopics } = useContext(Context);
+  const { topics, setTopics } = useContext(Context);
 
-  /* const [topics, setTopics] = useState([]); */
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     setIsLoading(true);
-    fetch(`${baseUrl}/reviews?category=${category_slug}`)
-      .then((res) => {
-        if(res.status !== 200){
-          setIsLoading(false);
-          throw "No topics exist";
-        } else{
-          return res.json()
-        }
-      })
+   
+      getForumByCategoryRequest(category_slug)
       .then((data) => {
         setTopics(data.reviews);
         setIsLoading(false);
@@ -33,16 +26,9 @@ const ForumTopics = () => {
       .catch((err) => console.log(err));
   }, []);
 
-  /*  const post = forum.find(forum => {
-    return forum.slug === slug;
-  })
- */
 
   return (
-    <Grid108010
-      custClassMain={"pad20-m"}
-      col2={
-        <>
+    <div className="pad20-m center80">
           <PageTitleBar title={`Reviews for ${category_slug}`} />
           <AddNewTopic topics={topics} setTopics={setTopics} category={category_slug}/>
           {isLoading ? (
@@ -54,9 +40,7 @@ const ForumTopics = () => {
             }) : topics && <p>There are currently no posts for this topic.</p>}
             </div>
           )}
-        </>
-      }
-    />
+    </div>
   );
 };
 

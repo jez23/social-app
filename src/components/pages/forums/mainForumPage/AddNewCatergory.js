@@ -1,47 +1,29 @@
 import React, { useContext, useState } from "react";
 import Context from "../../../../contexts/Context";
-import Grid206020 from "../../../grids/Grid206020";
+
+import { addNewCatergoryRequest } from "../../../../utils/fetchQuestsForums";
 
 const AddNewCatergory = ({ categories, setCategories }) => {
-
-  const { baseUrl, loggedInUser } = useContext(Context);
+  const { loggedInUser } = useContext(Context);
 
   const [showDropDown, setShowDropDown] = useState(false);
   const [title, setTitle] = useState("");
   const [description, setDesription] = useState("");
-    const [errorMsg, setErrorMsg] = useState("");
+  const [errorMsg, setErrorMsg] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    fetch(`${baseUrl}/categories`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        title: title,
-        description: description,
-        owner: loggedInUser[0].username
-      })})
-        .then((res) => {
-            if(res.status !== 201){
-
-                setErrorMsg("Category title already exists");
-                throw "Category title already exists";
-            }else {
-                return res.json();
-            }
-        })
-        .then((data) => {
-                setErrorMsg("");
-                setTitle("");
-                setDesription("");
-                setCategories([data.category , ...categories]);
-        })
-        .catch(err => {
-            console.log(err)
-        })
+    addNewCatergoryRequest(title, description, loggedInUser[0].username)
+      .then((data) => {
+        setErrorMsg("");
+        setTitle("");
+        setDesription("");
+        setCategories([data.category, ...categories]);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   return (
@@ -54,8 +36,7 @@ const AddNewCatergory = ({ categories, setCategories }) => {
       {showDropDown && (
         <div>
           <h3>Add a new catergory</h3>
-          <Grid206020
-            col2={
+          <div className="center60">
               <form onSubmit={handleSubmit}>
                 <input
                   placeholder="Catergory Title"
@@ -74,10 +55,9 @@ const AddNewCatergory = ({ categories, setCategories }) => {
                   Add Topic
                 </button>
               </form>
-            }
-          />
-        </div>
-      )}
+          </div>
+    </div>)}
+
     </div>
   );
 };

@@ -1,9 +1,7 @@
-import React, { useContext, useEffect, useState } from "react";
-import Context from "../../../../../contexts/Context";
+import React from "react";
 import { Link } from "react-router-dom";
 
 const Contacts = () => {
-  const { baseURL } = useContext(Context);
 
   return (
     <>

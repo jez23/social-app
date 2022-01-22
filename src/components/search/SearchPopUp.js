@@ -1,66 +1,63 @@
-import React, { useContext } from 'react';
-import ReactDOM from 'react-dom';
-import { Link } from "react-router-dom"; 
-import TopicCard from './../pages/forums/topics/TopicCard';
+import React, { useContext } from "react";
+import ReactDOM from "react-dom";
+import TopicCard from "../pages/forums/topicsListPage/TopicCard";
 
 /* import { CSSTransition } from "react-transition-group"; */
+import Context from "../../contexts/Context";
 
-import Context from '../../contexts/Context';
-
-import SearchInput from './SearchInput';
-import Grid108010 from '../grids/Grid108010';
-import Grid206020 from '../grids/Grid206020';
+import SearchInput from "./SearchInput";
 
 const SearchPopUp = () => {
+  const {
+    showSearchPopUp,
+    setShowSearchPopUp,
+    searchData,
+    setSearchData,
+    searchInput,
+    setSearchInput,
+  } = useContext(Context);
 
-    const {   
-        showSearchPopUp,
-        setShowSearchPopUp,
-        searchData,
-        setSearchData,
-        searchInput,
-        setSearchInput, } = useContext(Context);
-
-const handleClose = () => {
+  const handleClose = () => {
     setShowSearchPopUp(!showSearchPopUp);
     setSearchData([]);
-    setSearchInput('');
-}
+    setSearchInput("");
+  };
 
-return ReactDOM.createPortal(
-    showSearchPopUp &&  
-    
-  /*   <CSSTransition
+  return ReactDOM.createPortal(
+    showSearchPopUp && (
+      /*   <CSSTransition
     in={showSearchPopUp}
     timeout={500}
     classNames={"searchPopUp"}
     unmountOnExit={true}
   > */
-  <div className="searchPopUp">
-        <Grid108010
-            col2={
-                <>
-                   
-                    <Grid206020
-                    
-                    col2={
-                    <div className="searchContainer">
-                    <div className="searchContainer__close">
-                        <button className="btn secondary" onClick={handleClose}>Close</button>
-                    </div>
-                    <SearchInput />
-                    {searchData && searchData.map(topic => {
-                        return <TopicCard topic={topic} topics={searchData} setTopics={setSearchData}/>
-                    })}
-                    </div>
-                }/>
-                </>
-            }
-        />
-    </div>
-   /*  </CSSTransition> */,
-    document.getElementById('searchPopUp')
-)
-}
+      <div className="searchPopUp">
+        <div className="center80">
+          <div className="center60">
+              <div className="searchContainer">
+                <div className="searchContainer__close">
+                  <button className="btn secondary" onClick={handleClose}>
+                    Close
+                  </button>
+                </div>
+                <SearchInput />
+                {searchData &&
+                  searchData.map((topic) => {
+                    return (
+                      <TopicCard
+                        topic={topic}
+                        topics={searchData}
+                        setTopics={setSearchData}
+                      />
+                    );
+                  })}
+              </div>
+            </div>
+        </div>
+      </div>
+    ),
+    /*  </CSSTransition> */ document.getElementById("searchPopUp")
+  );
+};
 
 export default SearchPopUp;

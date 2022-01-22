@@ -1,8 +1,9 @@
 import React, { useContext, useState } from "react";
 import Context from "../../../../contexts/Context";
+import { addNewCommentRequest } from '../../../../utils/fetchQuestsForums';
 
 const AddNewComment = ({ topicSlug, comments, setComments }) => {
-  const { baseUrl, loggedInUser } = useContext(Context);
+  const { loggedInUser } = useContext(Context);
 
   const [comment, setComment] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
@@ -10,24 +11,7 @@ const AddNewComment = ({ topicSlug, comments, setComments }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    fetch(`${baseUrl}/reviews/${topicSlug}/comments`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        username: loggedInUser[0].username,
-        body: comment,
-      }),
-    })
-      .then((res) => {
-        if (res.status !== 201) {
-          setErrorMsg("Error: There was an error with your comment");
-          throw "Error: There was an error with your comment";
-        } else {
-          return res.json();
-        }
-      })
+      addNewCommentRequest(topicSlug, loggedInUser[0].username, comment)
       .then((data) => {
         setErrorMsg("");
         setComment("");

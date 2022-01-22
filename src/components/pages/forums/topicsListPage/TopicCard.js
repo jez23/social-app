@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import Context from '../../../../contexts/Context';
 
-import VoteUpOrDownTopics from "./VoteUpOrDownTopics";
+import VoteUpOrDownTopics from "./VoteUpOrDownTopics"; 
 import DeleteTopics from "./DeleteTopics";
 
 const ForumTableListTopics = ({ topic, topics, setTopics }) => {

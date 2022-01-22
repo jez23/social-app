@@ -2,18 +2,16 @@ import React, { useState, useEffect, useContext } from "react";
 import { Link } from 'react-router-dom'; 
 import { useParams } from "react-router-dom";
 import Context from "../../../../contexts/Context";
-
+import { getAllTopicsRequest } from '../../../../utils/fetchQuestsForums';
 
 import PageTitleBar from "../../../pageTitleBar/PageTitlebar";
-import Grid108010 from "../../../grids/Grid108010";
-import Grid5050 from "../../../grids/Grid5050";
 import ForumComments from "../forumComments/ForumComments";
 import UpVotes from "./UpVotes";
 
 const ForumTopics = () => {
-  let { topic_slug } = useParams();
+  let { topic_slug } = useParams(); 
 
-  const { baseUrl, formatDates } = useContext(Context);
+  const { formatDates } = useContext(Context);
   const [topic, setTopic] = useState([]);
 
   const [isLoading, setIsLoading] = useState(true);
@@ -21,8 +19,8 @@ const ForumTopics = () => {
   useEffect(() => {
 
     setIsLoading(true);
-    fetch(`${baseUrl}/reviews/${topic_slug}`)
-      .then((res) => res.json())
+
+      getAllTopicsRequest(topic_slug)
       .then((data) => {
         setTopic(data.review[0]);
         setIsLoading(false);
@@ -32,19 +30,16 @@ const ForumTopics = () => {
 
 
   return (
-    <Grid108010
-        custClassMain={'pad20-m'}
-      col2={
+    <div className="pad20-m center80">
         <div className="forumTopic">
-            <Grid5050 
-            custClassCol2={`alignRightFlex`}
-                col1={
+            <div className={`alignRightFlex grid5050`}>
+                <div className="grid5050__col1">
                     <PageTitleBar title={topic.title} />
-                }
-                col2={
+                </div>
+                <div className="grid5050__col2">
                     <UpVotes topic={topic} setTopic={setTopic}/>
-                }
-            />
+                </div>
+            </div>
           
            {isLoading ? (
             <p>Loading....</p>
@@ -62,8 +57,7 @@ const ForumTopics = () => {
           </>
           } 
         </div>
-      }
-    />
+    </div>
   );
 };
 

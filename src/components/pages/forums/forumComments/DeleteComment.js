@@ -1,9 +1,7 @@
-import React, { useState, useEffect, useContext } from 'react';
-import Context from '../../../../contexts/Context';
+import React from 'react';
+import { deleteCommentRequest } from '../../../../utils/fetchQuestsForums';
 
 const DeleteComment = ({ comment, comments, setComments }) => {
-
-    const { baseUrl } = useContext(Context);
 
     const deleteConfirmation = () => {
        
@@ -18,21 +16,7 @@ const DeleteComment = ({ comment, comments, setComments }) => {
     
             setComments(updatedComments)
 
-            fetch(`${baseUrl}/comments/${comment.comment_id}`,
-            {
-                method: "DELETE",
-                headers: {
-                  "Content-Type": "application/json",
-                }
-              })
-            .then(res => {
-                if(res.status !== 204){
-                    console.log(res.status)
-                    throw "Something went wrong deleting the comment";
-                } else{
-                    console.log("Deleted")
-                }
-            })
+            deleteCommentRequest(comment.comment_id)
             .catch(err => console.log(err))
         }
     }

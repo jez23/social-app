@@ -1,15 +1,11 @@
 import React from 'react';
-import Grid206020 from '../../grids/Grid206020';
+
 const Error404 = () => {
     return (
-        <Grid206020 
-            col2={
-                <>
+        <div className="center60">
                 <h1>Error: 404</h1>
                 <p>You've messed up!</p>
-                </>
-            }
-        />
+        </div>
     )
 }
 

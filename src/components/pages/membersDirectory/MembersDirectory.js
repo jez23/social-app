@@ -1,24 +1,18 @@
 import React, { useContext, useEffect, useState } from "react";
-
+import { getAllUsersRequest } from '../../../utils/fetchQuestsUsers'; 
 import Context from "../../../contexts/Context";
 
 import PageTitleBar from "../../pageTitleBar/PageTitlebar";
-import Grid108010 from "../../grids/Grid108010";
-import Grid206020 from "../../grids/Grid206020";
 import InfoCard from "../../infoCard/InfoCard";
 
 const MembersDirectory = ({ history }) => {
-  const { baseUrl } = useContext(Context);
 
   const [memberProfiles, setMemberProfiles] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    return fetch(`${baseUrl}/users`)
-    .then(response => {
-        return response.json()
-    }).then(data => {
-        console.log(data)
+    getAllUsersRequest()
+    .then(data => {
         setMemberProfiles(data.users);
         setIsLoading(false);
     })
@@ -28,17 +22,12 @@ const MembersDirectory = ({ history }) => {
 
   return (
     <>
-      <Grid108010
-        col2={
-          <>
+      <div className="center80">
             <PageTitleBar title="Members Directory" />
-          </>
-        }
-      />
+      </div>
 
-      {isLoading? <Grid108010 col2={ <p>Loading....</p>} />
-      :<Grid108010
-        col2={
+      {isLoading? <div className="center80"><p>Loading....</p></div>
+      :<div className="center80">
           <section className="info_card__outerContainer">
             {memberProfiles.map((user, i) => {
               return (
@@ -49,8 +38,7 @@ const MembersDirectory = ({ history }) => {
               );
             })}
           </section>
-        }
-      />}
+      </div>}
     </>
   );
 };

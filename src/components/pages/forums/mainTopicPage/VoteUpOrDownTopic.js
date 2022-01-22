@@ -1,28 +1,16 @@
-import React, { useContext } from 'react';
-import Context from "../../../../contexts/Context";
- 
-const VoteUpOrDownTopic = ({ topic, setTopic}) => {
+import React from 'react';
+import { voteOnTopicRequest } from '../../../../utils/fetchQuestsForums';
 
-    const { baseUrl } = useContext(Context);
+const VoteUpOrDownTopic = ({ topic, setTopic}) => {
 
     const handleVote = (num, e) => {
         e.stopPropagation();
 
         const newObj = { ...topic};
         newObj.votes =  newObj.votes + num;
-        console.log(topic)
         setTopic(newObj); 
 
-        fetch(`${baseUrl}/reviews/${topic.slug}`,{
-            method: "PATCH",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                inc_votes: num 
-            })
-          })
-        .then((res) =>  res.json())
+        voteOnTopicRequest(topic.slug, num)
         .then(data => console.log(data))
         .catch(err => console.log(err))
     }

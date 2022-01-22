@@ -1,5 +1,4 @@
 import React from "react";
-import './header.css';
 
 import DesktopHeader from './DecktopHeader';
 import MobileHeader from './MobileHeader';

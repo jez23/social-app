@@ -1,43 +1,46 @@
 import React, { useState, useContext, useEffect } from "react";
-import Context from "../../../../contexts/Context";
+import { getForumCommentsRequest } from "../../../../utils/fetchQuestsForums";
 
-import Grid108010 from "../../../grids/Grid108010";
 import Comment from "../forumComments/Comment";
-import AddNewComment from  './AddNewComment';
+import AddNewComment from "./AddNewComment";
 
-const ForumComments = ({topicSlug}) => {
+const ForumComments = ({ topicSlug }) => {
+  const [comments, setComments] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
 
-    const { baseUrl } = useContext(Context);
+  useEffect(() => {
+    setIsLoading(true);
 
-    const [comments, setComments] = useState('');
-    const [isLoading, setIsLoading] = useState(true);
-
-    useEffect(() => {
-      
-        setIsLoading(true);
-        fetch(`${baseUrl}/reviews/${topicSlug}/comments`)
-          .then((res) => res.json())
-          .then((data) => {
-              console.log(data.comments)
-            setComments(data.comments);
-            setIsLoading(false);
-          })
-          .catch((err) => console.log(err));
-      }, []);
+    getForumCommentsRequest(topicSlug)
+      .then((data) => {
+        setComments(data.comments);
+        setIsLoading(false);
+      })
+      .catch((err) => console.log(err));
+  }, []);
 
   return (
-    <>
-      <Grid108010
-        col2={
-        <>
-          < AddNewComment topicSlug={topicSlug} comments={comments} setComments={setComments}/>
-          {isLoading? <p>Loading....</p> : comments.map((comment, key) => {
-              return <Comment comment={comment} key={`comment-${key}`} comments={comments} setComments={setComments}/>
-          })}
-          </>
-        }
-      />
-    </>
+      <div className="center80">
+            <AddNewComment
+              topicSlug={topicSlug}
+              comments={comments}
+              setComments={setComments}
+            />
+            {isLoading ? (
+              <p>Loading....</p>
+            ) : (
+              comments.map((comment, key) => {
+                return (
+                  <Comment
+                    comment={comment}
+                    key={`comment-${key}`}
+                    comments={comments}
+                    setComments={setComments}
+                  />
+                );
+              })
+            )}
+      </div>
   );
 };
 

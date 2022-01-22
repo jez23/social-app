@@ -6,7 +6,6 @@ const Context = createContext();
 
 export function ConstProvider({children}){
   
-    const [baseUrl, setBaseUrl] = useState('https://blog-blackend-api.herokuapp.com/api/v1');  
     const [currentTopic, setCurrentTopic] = useState([]);
     const [allCategories, setAllCategories] = useState([]);
     const [showSearchPopUp, setShowSearchPopUp] = useState(false);
@@ -28,7 +27,6 @@ export function ConstProvider({children}){
 
     return(
         <Context.Provider value={{
-            baseUrl,
             currentTopic, 
             setCurrentTopic,
             formatDates,
