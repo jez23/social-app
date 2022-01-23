@@ -1,12 +1,12 @@
 import React, { useContext, useEffect, useState } from 'react';
 import Context from '../../contexts/Context';
 
-const Pagination = ({ totalCount } ) => {
+const Pagination = ({ totalCount, perPage } ) => {
 
     const {   paginationCurrentPageTopics,
             setPaginationCurrentPageTopics } = useContext(Context);
 
-    const [ resultsPerPage, setResultsPerPage ] = useState(10);
+    const [ resultsPerPage, setResultsPerPage ] = useState(perPage);
     const [ totalTopics, setTotalTopics] = useState(totalCount)
     const [ pagesEmptyArray, setPagesEmptyArray ] = useState(null);
 

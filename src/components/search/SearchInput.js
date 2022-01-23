@@ -1,38 +1,40 @@
-import React, { useContext, useState } from 'react';
-
-import Context from '../../contexts/Context';
+import React, { useContext, useState } from "react";
+import { getSearchResultsRequest } from "../../utils/fetchQuestsSearch";
+import Context from "../../contexts/Context";
 
 const SearchInput = () => {
+  const { searchInput, setSearchInput, setSearchData, baseUrl } =
+    useContext(Context);
 
-    const {
-        searchInput,
-        setSearchInput,
-        setSearchData,
-        baseUrl
-    } = useContext(Context);
+  const [runSearch, setRunSearch] = useState(false);
 
-   const [runSearch, setRunSearch] = useState(false)
+  const startSearch = (e) => {
+    e.preventDefault();
 
-    
-      const startSearch = (e) =>{
-        if (e.key === 'Enter') {
-            fetch(`${baseUrl}/reviews?title=${searchInput}`)
-          .then(response => response.json())
-          .then(data => {
-            setSearchData(data.reviews)
-          }).catch(err => console.log(err))
-            setRunSearch(!runSearch);
-          }
-      }
+    getSearchResultsRequest(searchInput)
+      .then((data) => {
+        setSearchData(data.reviews);
+      })
+      .catch((err) => console.log(err));
+    setRunSearch(!runSearch);
+  };
 
-    return (
-        <div className="searchInput">  
-            <input placeholder="search" name="Search" value={searchInput} onKeyDown={e => startSearch(e)} onChange={(e) => setSearchInput(e.target.value.toLowerCase()) }/>
-            <div className="searchInput__icon" onClick={() => setRunSearch(!runSearch)}>
-                <i className="fa fa-search" aria-hidden="true"></i>
-            </div>
-        </div>   
-    )
-}
+  return (
+    <div className="searchInput">
+      <form onSubmit={startSearch}>
+        <input
+          placeholder="search"
+          name="Search"
+          value={searchInput}
+          onChange={(e) => setSearchInput(e.target.value.toLowerCase())}
+        />
+
+        <button className="searchInput__icon">
+          <i className="fa fa-search" aria-hidden="true"></i>
+        </button>
+      </form>
+    </div>
+  );
+};
 
 export default SearchInput;

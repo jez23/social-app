@@ -26,8 +26,8 @@ const LoginTopNav = () => {
                 <ul>
              
                   {loggedInUser.length > 0? <><li><button className="btn primary" onClick={() => setLoggedInUser([])}>Logout</button></li>
-                    <li><Link to={`/members-directory/profile/${loggedInUser[0].username}`} className="btn primary" >Account</Link></li></>: <><li><Link to="/login" className="btn primary">Login</Link></li>
-                    <li><Link to="/register" className="btn primary">Register</Link></li></> }
+                    <li><Link to={`/members-directory/profile/${loggedInUser[0].username}`} className="btn primary" >Account</Link></li><li><img src={loggedInUser[0].avatar_url} /></li></>: <><li><Link to="/login" className="btn primary">Login</Link></li>
+                    <li><Link to="/register" className="btn primary">Register</Link></li></>}
                 </ul>
             </div>
         </div>

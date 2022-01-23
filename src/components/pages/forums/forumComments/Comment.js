@@ -8,6 +8,7 @@ import DeleteComment from "./DeleteComment";
 import Grid7030 from "../../../grids/Grid7030";
 
 const Comment = ({ comment, comments, setComments }) => {
+
   const { loggedInUser } = useContext(Context);
 
   return (

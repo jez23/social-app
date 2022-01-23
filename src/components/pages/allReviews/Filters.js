@@ -58,13 +58,18 @@ const Filters = ({queries, setQueries}) => {
                 <option value="asc">asc</option>
                 <option value="desc">desc</option>
             </select>
-            <select value={categoryQuery} onChange={(e) => setCategoryQuery(e.target.value)}>
+            <button type="submit" className="btn secondary">Filter</button>
+            <button className="btn tertiary" onClick={handleReset}>Reset</button>
+        </form>
+
+        <form onSubmit={handleSubmit}>
+        <select value={categoryQuery} onChange={(e) => setCategoryQuery(e.target.value)}>
                 <option value="">Select Category</option>
                 {allCategories && allCategories.map((category, key) => {
                      return   <option value={category.slug} key={`cat-${key}`}>{category.title}</option>;
                 })}
             </select>
-            <button type="submit" className="btn secondary">Filter</button>
+            <button type="submit" className="btn secondary">Sort</button>
             <button className="btn tertiary" onClick={handleReset}>Reset</button>
         </form>
         </div>

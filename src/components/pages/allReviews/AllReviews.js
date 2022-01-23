@@ -51,7 +51,7 @@ const AllReviews = () => {
               return <TopicCard topic={topic} key={`topic-${key}`} topics={topics} setTopics={setTopics}/>;
             }) : topics && <p>There are currently no posts for this topic.</p>}
             </div>
-            < Pagination totalCount={totalCount}/>
+            < Pagination totalCount={totalCount} perPage={10}/>
             </>
           )}    
     </div>

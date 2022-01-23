@@ -107,7 +107,7 @@ form textarea {
     cursor: pointer;
 }
 
-.topicCard__upvote i:hover{
-    color: green;
-    cursor: pointer;
+.vote_plus_disable, .vote_minus_disable {
+    color: rgba(0,0,0,.08);
 }
+

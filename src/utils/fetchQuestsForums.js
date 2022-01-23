@@ -73,13 +73,15 @@ export const deleteCommentRequest = (comment_id) => {
   });
 };
 
-export const getForumCommentsRequest = (topicSlug) => {
-  return fetch(`${baseUrl}/reviews/${topicSlug}/comments`).then((res) =>
+export const getForumCommentsRequest = (topicSlug, paginationCurrentPageTopics) => {
+  return fetch(`${baseUrl}/reviews/${topicSlug}/comments?limit=5&p=${paginationCurrentPageTopics * 5}`).then((res) =>
     res.json()
   );
 };
 
-export const voteOnCommentRequest = (comment_id, num) => {
+export const voteOnCommentRequest = (comment_id, num, username) => {
+
+  console.log("THATTTT: ", username)
   return fetch(`${baseUrl}/comments/${comment_id}`, {
     method: "PATCH",
     headers: {
@@ -87,6 +89,7 @@ export const voteOnCommentRequest = (comment_id, num) => {
     },
     body: JSON.stringify({
       inc_votes: num,
+      username: username
     }),
   }).then((res) => res.json());
 };
