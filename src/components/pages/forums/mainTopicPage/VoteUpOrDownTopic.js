@@ -18,6 +18,7 @@ const VoteUpOrDownTopic = ({ topic, setTopic}) => {
     return (
         <div className='upVote__buttons'>
         <i className="fa fa-arrow-circle-o-up vote_plus" aria-hidden="true" onClick={(e) => handleVote(1, e)}></i>
+        <p>{topic.votes}</p>
         <i className="fa fa-arrow-circle-o-down vote_minus" aria-hidden="true" onClick={(e) => handleVote(-1, e)}></i>
       </div>
     )

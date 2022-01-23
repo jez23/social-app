@@ -26,6 +26,7 @@ const VoteUpOrDownTopic = ({ topic, setTopics, topics }) => {
         aria-hidden="true"
         onClick={(e) => handleVote(1, e)}
       ></i>
+      <p>{topic.votes}</p>
       <i
         className="fa fa-arrow-circle-o-down vote_minus"
         aria-hidden="true"

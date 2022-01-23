@@ -30,10 +30,10 @@ const VoteUpOrDown = ({ comment, comments, setComments  }) => {
         <div className="commentCard__upvote grid3070">
            <div className="topicCard__upvote grid3070__col1">
              <p>Vote:</p>
-             {comment.votes_by.includes(loggedInUser[0].username)?   <><i className="fa fa-arrow-circle-o-up vote_plus_disable" aria-hidden="true" onClick={() => alert("You have already voted on this comment")}></i>
+             {comment.votes_by.includes(loggedInUser[0].username)?   <><i className="fa fa-arrow-circle-o-up vote_plus_disable" aria-hidden="true" onClick={() => alert("You have already voted on this comment")}></i><p>{comment.votes}</p>
               <i className="fa fa-arrow-circle-o-down vote_minus_disable" aria-hidden="true" onClick={() => alert("You have already voted on this comment")}></i></>:
              <>
-              {!justVoted && <><i className="fa fa-arrow-circle-o-up vote_plus" aria-hidden="true" onClick={() => handleVote(1)}></i>
+              {!justVoted && <><i className="fa fa-arrow-circle-o-up vote_plus" aria-hidden="true" onClick={() => handleVote(1)}><p>{comment.votes}</p></i>
               <i className="fa fa-arrow-circle-o-down vote_minus" aria-hidden="true" onClick={() => handleVote(-1)}></i></>}
               {justVoted && <><p>Thank you for your vote</p></>}
              </>}
